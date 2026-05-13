@@ -1,13 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.smartlogix.Inventario.repository;
+
+import com.smartlogix.Inventario.model.MovimientoInventario;
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author Gubier
  */
-public class MovimientoInventarioRepository {
-    
+
+public interface MovimientoInventarioRepository extends JpaRepository<MovimientoInventario, Long> {
+    List<MovimientoInventario> findByProductoIdOrderByFechaMovimientoDesc(Long productoId);
 }
