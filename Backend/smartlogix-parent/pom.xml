@@ -8,6 +8,8 @@
     <modules>
         <module>Usuarios</module>
         <module>msEnvios</module>
+        <module>Inventario</module>
+ Feature/Microservicios
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
