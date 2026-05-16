@@ -6,6 +6,7 @@ com\smartlogix\pedidos\repository\PedidoRepository.class
 com\smartlogix\pedidos\dto\CambiarEstadoRequest.class
 com\smartlogix\pedidos\exception\StockNoDisponibleException.class
 com\smartlogix\pedidos\dto\PedidoRequest.class
+com\smartlogix\pedidos\config\SwaggerConfig.class
 com\smartlogix\pedidos\dto\ProductoInventarioResponse.class
 com\smartlogix\pedidos\model\DetallePedido.class
 com\smartlogix\pedidos\controller\HomeController.class
