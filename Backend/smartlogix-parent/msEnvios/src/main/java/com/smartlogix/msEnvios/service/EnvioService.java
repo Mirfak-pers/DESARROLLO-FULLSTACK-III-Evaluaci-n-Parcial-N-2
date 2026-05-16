@@ -11,10 +11,12 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class EnvioService {
-
+    private static final Logger logger = LoggerFactory.getLogger(EnvioService.class);
     private final EnvioRepository envioRepository;
 
     public EnvioService(EnvioRepository envioRepository) {
@@ -23,6 +25,7 @@ public class EnvioService {
 
     // Crear un nuevo envío
     public Envio crearEnvio(EnvioRequest request) {
+        logger.info("Creando envío para pedido ID: {}", request.getPedidoId());
         Envio envio = new Envio();
         envio.setPedidoId(request.getPedidoId());
         envio.setUsuarioId(request.getUsuarioId());
@@ -38,13 +41,17 @@ public class EnvioService {
 
     // Listar todos los envíos
     public List<Envio> listarTodos() {
+         logger.info("Listando todos los envíos");
         return envioRepository.findAll();
     }
 
     // Buscar por ID
     public Envio buscarPorId(Long id) {
         return envioRepository.findById(id)
-                .orElseThrow(() -> new EnvioNoEncontradoException("Envío no encontrado con ID: " + id));
+                .orElseThrow(() -> {
+                logger.warn("No se encontró envío con ID: {}", id);
+                return new EnvioNoEncontradoException("Envío no encontrado con ID: " + id);
+            });
     }
 
     // Buscar por número de seguimiento
@@ -70,6 +77,7 @@ public class EnvioService {
 
     // Cambiar estado del envío
     public Envio cambiarEstado(Long id, CambiarEstadoRequest request) {
+         logger.info("Cambiando estado del envío ID: {} a {}", id, request.getNuevoEstado());
         Envio envio = buscarPorId(id);
         envio.setEstado(request.getNuevoEstado());
 

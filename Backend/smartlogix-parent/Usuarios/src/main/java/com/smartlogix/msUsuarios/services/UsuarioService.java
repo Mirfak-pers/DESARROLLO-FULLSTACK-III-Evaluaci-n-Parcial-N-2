@@ -1,49 +1,147 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.smartlogix.msUsuarios.services;
 
 import com.smartlogix.msUsuarios.models.Usuario;
 import com.smartlogix.msUsuarios.repositories.UsuarioRepository;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import java.util.List;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UsuarioService {
 
+    private static final Logger logger =
+            LoggerFactory.getLogger(UsuarioService.class);
+
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    // Obtener todos los empleados de SmartLogix
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
+    // ==========================
+    // LISTAR USUARIOS
+    // ==========================
     public List<Usuario> listarTodos() {
+
+        logger.info("Listando todos los usuarios");
+
         return usuarioRepository.findAll();
     }
 
-    // Guardar un nuevo usuario
+    // ==========================
+    // GUARDAR USUARIO
+    // ==========================
     public Usuario guardar(Usuario usuario) {
-        // Aquí podrías agregar lógica para encriptar la contraseña antes de guardar
-        return usuarioRepository.save(usuario);
+
+        logger.info(
+                "Registrando usuario: {}",
+                usuario.getUsername()
+        );
+
+        // Encriptar contraseña
+        usuario.setPassword(
+                passwordEncoder.encode(
+                        usuario.getPassword()
+                )
+        );
+
+        Usuario guardado =
+                usuarioRepository.save(usuario);
+
+        logger.info(
+                "Usuario registrado correctamente con ID: {}",
+                guardado.getId()
+        );
+
+        return guardado;
     }
 
-    // Buscar por ID
+    // ==========================
+    // BUSCAR POR ID
+    // ==========================
     public Usuario buscarPorId(Long id) {
-        return usuarioRepository.findById(id).orElse(null);
+
+        logger.info(
+                "Buscando usuario ID: {}",
+                id
+        );
+
+        Usuario usuario =
+                usuarioRepository.findById(id)
+                        .orElse(null);
+
+        if (usuario == null) {
+            logger.warn(
+                    "Usuario no encontrado ID: {}",
+                    id
+            );
+        }
+
+        return usuario;
     }
 
-    // Eliminar usuario
+    // ==========================
+    // ELIMINAR USUARIO
+    // ==========================
     public void eliminar(Long id) {
-        usuarioRepository.deleteById(id);
-    }
-    
-        @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
 
-    public Usuario login(String username, String password) {
-        return usuarioRepository.findByUsername(username)
-            .filter(user -> passwordEncoder.matches(password, user.getPassword()))
-            .orElseThrow(() -> new RuntimeException("Credenciales inválidas"));
+        logger.warn(
+                "Eliminando usuario ID: {}",
+                id
+        );
+
+        usuarioRepository.deleteById(id);
+
+        logger.info(
+                "Usuario eliminado correctamente ID: {}",
+                id
+        );
+    }
+
+    // ==========================
+    // LOGIN
+    // ==========================
+    public Usuario login(
+            String username,
+            String password
+    ) {
+
+        logger.info(
+                "Intento de login para usuario: {}",
+                username
+        );
+
+        Usuario usuario = usuarioRepository
+                .findByUsername(username)
+                .filter(user ->
+                        passwordEncoder.matches(
+                                password,
+                                user.getPassword()
+                        )
+                )
+                .orElseThrow(() -> {
+
+                    logger.warn(
+                            "Login fallido para usuario: {}",
+                            username
+                    );
+
+                    return new RuntimeException(
+                            "Credenciales inválidas"
+                    );
+                });
+
+        logger.info(
+                "Login exitoso para usuario: {}",
+                username
+        );
+
+        return usuario;
     }
 }
