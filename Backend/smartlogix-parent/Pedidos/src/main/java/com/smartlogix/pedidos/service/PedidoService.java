@@ -4,7 +4,6 @@ import com.smartlogix.pedidos.dto.CambiarEstadoRequest;
 import com.smartlogix.pedidos.dto.DetallePedidoRequest;
 import com.smartlogix.pedidos.dto.PedidoRequest;
 import com.smartlogix.pedidos.dto.ProductoInventarioResponse;
-import com.smartlogix.pedidos.dto.StockRequest;
 import com.smartlogix.pedidos.exception.PedidoNoEncontradoException;
 import com.smartlogix.pedidos.exception.PedidoVacioException;
 import com.smartlogix.pedidos.exception.StockNoDisponibleException;
@@ -16,9 +15,7 @@ import com.smartlogix.pedidos.repository.PedidoRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -30,17 +27,14 @@ public class PedidoService {
 
     private final PedidoRepository pedidoRepository;
     private final DetallePedidoRepository detallePedidoRepository;
-    private final RestTemplate restTemplate;
-
-    @Value("${servicios.inventario.url:http://localhost:8081/api/inventario/productos}")
-    private String inventarioServiceUrl;
+    private final InventarioClientService inventarioClientService;
 
     public PedidoService(PedidoRepository pedidoRepository,
                          DetallePedidoRepository detallePedidoRepository,
-                         RestTemplate restTemplate) {
+                         InventarioClientService inventarioClientService) {
         this.pedidoRepository = pedidoRepository;
         this.detallePedidoRepository = detallePedidoRepository;
-        this.restTemplate = restTemplate;
+        this.inventarioClientService = inventarioClientService;
     }
 
     // ==========================
@@ -98,13 +92,12 @@ public class PedidoService {
             );
 
             ProductoInventarioResponse producto =
-                    obtenerProductoInventario(
+                    inventarioClientService.obtenerProductoInventario(
                             detalleRequest.getProductoId()
                     );
 
             if (producto.getStock() == null ||
-                    producto.getStock()
-                            < detalleRequest.getCantidad()) {
+                    producto.getStock() < detalleRequest.getCantidad()) {
 
                 logger.warn(
                         "Stock insuficiente para producto ID {}",
@@ -191,38 +184,7 @@ public class PedidoService {
     }
 
     // ==========================
-    // CONSULTA INVENTARIO
-    // ==========================
-    private ProductoInventarioResponse
-    obtenerProductoInventario(Long productoId) {
-
-        logger.debug(
-                "Consultando inventario producto ID {}",
-                productoId
-        );
-
-        try {
-            return restTemplate.getForObject(
-                    inventarioServiceUrl + "/" + productoId,
-                    ProductoInventarioResponse.class
-            );
-
-        } catch (Exception ex) {
-
-            logger.error(
-                    "Error consultando inventario producto {}",
-                    productoId
-            );
-
-            throw new StockNoDisponibleException(
-                    "No se pudo consultar inventario para producto ID: "
-                            + productoId
-            );
-        }
-    }
-
-    // ==========================
-    // DESCONTAR STOCK
+    // DESCONTAR STOCK CON CIRCUIT BREAKER
     // ==========================
     private void validarYDescontarStock(Pedido pedido) {
 
@@ -235,32 +197,10 @@ public class PedidoService {
                     detalle.getCantidad()
             );
 
-            try {
-
-                restTemplate.postForObject(
-                        inventarioServiceUrl + "/"
-                                + detalle.getProductoId()
-                                + "/descontar-stock",
-
-                        new StockRequest(
-                                detalle.getCantidad()
-                        ),
-
-                        Object.class
-                );
-
-            } catch (Exception ex) {
-
-                logger.error(
-                        "Error descontando stock producto {}",
-                        detalle.getProductoId()
-                );
-
-                throw new StockNoDisponibleException(
-                        "No se pudo descontar stock del producto ID: "
-                                + detalle.getProductoId()
-                );
-            }
+            inventarioClientService.descontarStock(
+                    detalle.getProductoId(),
+                    detalle.getCantidad()
+            );
         }
     }
 }
