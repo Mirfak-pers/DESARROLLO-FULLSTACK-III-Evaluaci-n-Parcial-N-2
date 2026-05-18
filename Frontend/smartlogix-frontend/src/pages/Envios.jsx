@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Plus, RefreshCcw, Search, Truck } from "lucide-react";
 import { crearEnvio, obtenerEnvios } from "../services/enviosService";
+import { obtenerPedidos } from "../services/pedidosService";
 
 function Envios() {
   const [envios, setEnvios] = useState([]);
+  const [pedidos, setPedidos] = useState([]);
   const [busqueda, setBusqueda] = useState("");
   const [form, setForm] = useState({
     pedidoId: "",
@@ -15,15 +17,26 @@ function Envios() {
   const cargarEnvios = async () => {
     try {
       const data = await obtenerEnvios();
-      setEnvios(data);
+      setEnvios(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error("Error al cargar envíos", error);
-      console.log("BFF no disponible para cargar envíos");
+      alert("No se pudieron cargar los envíos. Verifica el BFF y Keycloak.");
+    }
+  };
+
+  const cargarPedidos = async () => {
+    try {
+      const data = await obtenerPedidos();
+      setPedidos(Array.isArray(data) ? data : []);
+    } catch (error) {
+      console.error("Error al cargar pedidos", error);
+      alert("No se pudieron cargar los pedidos para crear envíos.");
     }
   };
 
   useEffect(() => {
     cargarEnvios();
+    cargarPedidos();
   }, []);
 
   const handleChange = (e) => {
@@ -73,6 +86,8 @@ function Envios() {
     return texto.includes(busqueda.toLowerCase());
   });
 
+  const pedidosAprobados = pedidos.filter((pedido) => pedido.estado === "APROBADO");
+
   return (
     <section className="page-panel">
       <div className="page-header">
@@ -106,10 +121,8 @@ function Envios() {
         </div>
 
         <div className="stat-card">
-          <span>En tránsito</span>
-          <strong>
-            {envios.filter((envio) => envio.estado === "EN_TRANSITO").length}
-          </strong>
+          <span>Pedidos aprobados</span>
+          <strong>{pedidosAprobados.length}</strong>
         </div>
 
         <div className="stat-card">
@@ -124,7 +137,7 @@ function Envios() {
         <div className="search-box">
           <Search size={18} />
           <input
-            placeholder="Buscar por pedido, dirección, transportista o estado"
+            placeholder="Buscar por ID de pedido, dirección, transportista o estado"
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
           />
@@ -132,13 +145,14 @@ function Envios() {
       </div>
 
       <form id="envioForm" className="formulario panel-form envios-form" onSubmit={handleSubmit}>
-        <input
-          name="pedidoId"
-          type="number"
-          placeholder="ID Pedido"
-          value={form.pedidoId}
-          onChange={handleChange}
-        />
+        <select name="pedidoId" value={form.pedidoId} onChange={handleChange}>
+          <option value="">Selecciona ID de pedido aprobado</option>
+          {pedidosAprobados.map((pedido) => (
+            <option key={pedido.id} value={pedido.id}>
+              Pedido ID #{pedido.id} - {pedido.cliente}
+            </option>
+          ))}
+        </select>
 
         <input
           name="direccion"
@@ -162,6 +176,10 @@ function Envios() {
         />
       </form>
 
+      <div className="info-box">
+        Para crear un envío, primero aprueba un pedido en el módulo Pedidos. Aquí se muestra explícitamente el ID del pedido aprobado.
+      </div>
+
       <div className="table-card">
         <div className="table-header">
           <h3>Listado de envíos</h3>
@@ -171,8 +189,8 @@ function Envios() {
         <table>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Pedido</th>
+              <th>ID Envío</th>
+              <th>ID Pedido</th>
               <th>Dirección</th>
               <th>Transportista</th>
               <th>Fecha estimada</th>
@@ -193,7 +211,9 @@ function Envios() {
                   <td>
                     <strong>#{envio.id}</strong>
                   </td>
-                  <td>{envio.pedidoId}</td>
+                  <td>
+                    <strong>Pedido #{envio.pedidoId}</strong>
+                  </td>
                   <td>{envio.direccion}</td>
                   <td>{envio.transportista}</td>
                   <td>{envio.fechaEstimada || "Sin fecha"}</td>

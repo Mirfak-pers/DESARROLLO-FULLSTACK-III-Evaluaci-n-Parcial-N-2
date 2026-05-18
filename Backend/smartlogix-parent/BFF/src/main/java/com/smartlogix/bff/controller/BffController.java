@@ -73,6 +73,7 @@ public class BffController {
         body.put("codigo", producto.get("codigo"));
         body.put("nombre", producto.get("nombre"));
         body.put("descripcion", producto.get("descripcion"));
+        body.put("precio", producto.get("precio"));
         body.put("stock", toInteger(producto.get("stock"), 0));
 
         return forward(inventarioUrl, HttpMethod.POST, body, authorization);
@@ -185,9 +186,11 @@ public class BffController {
         try {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
-            if (authorization != null && !authorization.isBlank()) {
-                headers.set(HttpHeaders.AUTHORIZATION, authorization);
-            }
+            // IMPORTANTE:
+            // El BFF ya validó el token de Keycloak antes de llegar a este método.
+            // Los microservicios son internos y no deben rechazar la llamada por problemas
+            // de issuer/roles del token del usuario. Por eso NO reenviamos el Authorization
+            // a Inventario, Pedidos ni Envios.
 
             HttpEntity<Object> entity = new HttpEntity<>(body, headers);
             return restTemplate.exchange(url, method, entity, Object.class);

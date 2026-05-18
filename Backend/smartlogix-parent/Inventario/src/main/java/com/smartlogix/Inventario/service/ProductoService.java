@@ -50,6 +50,7 @@ public class ProductoService {
                 request.getCodigo(),
                 request.getNombre(),
                 request.getDescripcion(),
+                request.getPrecio(),
                 request.getStock()
         );
 

@@ -53,10 +53,30 @@ services:
     build: ./Backend/smartlogix-parent/msEnvios
     container_name: smartlogix-envios
     ports:
-      - "8083:8083"
+      - "8085:8085"
     depends_on:
       - eureka
       - keycloak
+    networks:
+      - smartlogix-net
+
+  bff:
+    build: ./Backend/smartlogix-parent/BFF
+    container_name: smartlogix-bff
+    ports:
+      - "8083:8083"
+    environment:
+      - INVENTARIO_URL=http://ms-inventario:8081/api/inventario/productos
+      - PEDIDOS_URL=http://ms-pedidos:8082/api/pedidos
+      - ENVIOS_URL=http://ms-envios:8085/api/envios
+      - KEYCLOAK_ISSUER_URI=http://localhost:8080/realms/smartlogix
+      - KEYCLOAK_JWK_SET_URI=http://keycloak:8080/realms/smartlogix/protocol/openid-connect/certs
+    depends_on:
+      - eureka
+      - keycloak
+      - ms-inventario
+      - ms-pedidos
+      - ms-envios
     networks:
       - smartlogix-net
 
