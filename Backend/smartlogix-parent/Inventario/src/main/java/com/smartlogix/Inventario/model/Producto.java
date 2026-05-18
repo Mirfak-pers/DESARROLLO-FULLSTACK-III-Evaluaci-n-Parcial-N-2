@@ -3,8 +3,6 @@ package com.smartlogix.Inventario.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.DecimalMin;
-import java.math.BigDecimal;
 
 /**
  *
@@ -31,10 +29,6 @@ public class Producto {
 
     private String descripcion;
 
-    @DecimalMin(value = "0.0", inclusive = true)
-    @Column(nullable = false, precision = 12, scale = 2)
-    private BigDecimal precio;
-
     @Min(0)
     @Column(nullable = false)
     private Integer stock;
@@ -42,11 +36,10 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(String codigo, String nombre, String descripcion, BigDecimal precio, Integer stock) {
+    public Producto(String codigo, String nombre, String descripcion, Integer stock) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.precio = precio;
         this.stock = stock;
     }
 
@@ -76,14 +69,6 @@ public class Producto {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public BigDecimal getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(BigDecimal precio) {
-        this.precio = precio;
     }
 
     public Integer getStock() {

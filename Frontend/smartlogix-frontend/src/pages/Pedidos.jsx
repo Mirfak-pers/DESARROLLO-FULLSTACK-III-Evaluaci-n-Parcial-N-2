@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { ClipboardList, Plus, RefreshCcw, Search } from "lucide-react";
-import { obtenerProductos } from "../services/inventarioService";
 import {
   aprobarPedido,
   crearPedido,
@@ -9,7 +8,6 @@ import {
 
 function Pedidos() {
   const [pedidos, setPedidos] = useState([]);
-  const [productos, setProductos] = useState([]);
   const [busqueda, setBusqueda] = useState("");
   const [form, setForm] = useState({
     cliente: "",
@@ -20,26 +18,15 @@ function Pedidos() {
   const cargarPedidos = async () => {
     try {
       const data = await obtenerPedidos();
-      setPedidos(Array.isArray(data) ? data : []);
+      setPedidos(data);
     } catch (error) {
       console.error("Error al cargar pedidos", error);
-      alert("No se pudieron cargar los pedidos. Verifica el BFF y Keycloak.");
-    }
-  };
-
-  const cargarProductos = async () => {
-    try {
-      const data = await obtenerProductos();
-      setProductos(Array.isArray(data) ? data : []);
-    } catch (error) {
-      console.error("Error al cargar productos", error);
-      alert("No se pudieron cargar los productos para crear pedidos.");
+      console.log("BFF no disponible para cargar pedidos");
     }
   };
 
   useEffect(() => {
     cargarPedidos();
-    cargarProductos();
   }, []);
 
   const handleChange = (e) => {
@@ -49,10 +36,6 @@ function Pedidos() {
     });
   };
 
-  const productoSeleccionado = productos.find(
-    (producto) => String(producto.id) === String(form.productoId)
-  );
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -61,8 +44,8 @@ function Pedidos() {
       return;
     }
 
-    if (Number(form.cantidad) <= 0) {
-      alert("La cantidad debe ser mayor a 0");
+    if (Number(form.productoId) <= 0 || Number(form.cantidad) <= 0) {
+      alert("El ID del producto y la cantidad deben ser mayores a 0");
       return;
     }
 
@@ -101,25 +84,9 @@ function Pedidos() {
   };
 
   const pedidosFiltrados = pedidos.filter((pedido) => {
-    const detalleTexto = (pedido.detalles || [])
-      .map((detalle) => `${detalle.nombreProducto || ""} ${detalle.codigoProducto || ""}`)
-      .join(" ");
-    const texto = `${pedido.id} ${pedido.cliente} ${pedido.estado} ${detalleTexto}`.toLowerCase();
+    const texto = `${pedido.id} ${pedido.cliente} ${pedido.estado}`.toLowerCase();
     return texto.includes(busqueda.toLowerCase());
   });
-
-  const obtenerDetalleVisible = (pedido) => {
-    if (!pedido.detalles || pedido.detalles.length === 0) {
-      return "Sin detalle";
-    }
-
-    return pedido.detalles
-      .map((detalle) => {
-        const nombre = detalle.nombreProducto || detalle.codigoProducto || "Producto";
-        return `${nombre} x${detalle.cantidad}`;
-      })
-      .join(", ");
-  };
 
   return (
     <section className="page-panel">
@@ -172,7 +139,7 @@ function Pedidos() {
         <div className="search-box">
           <Search size={18} />
           <input
-            placeholder="Buscar por cliente, pedido, producto o estado"
+            placeholder="Buscar por cliente, ID o estado"
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
           />
@@ -187,14 +154,13 @@ function Pedidos() {
           onChange={handleChange}
         />
 
-        <select name="productoId" value={form.productoId} onChange={handleChange}>
-          <option value="">Selecciona un producto</option>
-          {productos.map((producto) => (
-            <option key={producto.id} value={producto.id}>
-              {producto.nombre} - Stock: {producto.stock} - ${Number(producto.precio || 0).toLocaleString("es-CL")}
-            </option>
-          ))}
-        </select>
+        <input
+          name="productoId"
+          type="number"
+          placeholder="ID Producto"
+          value={form.productoId}
+          onChange={handleChange}
+        />
 
         <input
           name="cantidad"
@@ -205,12 +171,6 @@ function Pedidos() {
         />
       </form>
 
-      {productoSeleccionado && (
-        <div className="info-box">
-          Producto seleccionado: <strong>{productoSeleccionado.nombre}</strong> · Stock disponible: {productoSeleccionado.stock}
-        </div>
-      )}
-
       <div className="table-card">
         <div className="table-header">
           <h3>Listado de pedidos</h3>
@@ -220,9 +180,8 @@ function Pedidos() {
         <table>
           <thead>
             <tr>
-              <th>ID Pedido</th>
+              <th>ID</th>
               <th>Cliente</th>
-              <th>Productos</th>
               <th>Estado</th>
               <th>Acción</th>
             </tr>
@@ -231,7 +190,7 @@ function Pedidos() {
           <tbody>
             {pedidosFiltrados.length === 0 ? (
               <tr>
-                <td colSpan="5" className="empty-row">
+                <td colSpan="4" className="empty-row">
                   No hay pedidos registrados
                 </td>
               </tr>
@@ -242,7 +201,6 @@ function Pedidos() {
                     <strong>#{pedido.id}</strong>
                   </td>
                   <td>{pedido.cliente}</td>
-                  <td>{obtenerDetalleVisible(pedido)}</td>
                   <td>
                     <span
                       className={
@@ -260,7 +218,6 @@ function Pedidos() {
                     <button
                       className="btn-small"
                       onClick={() => handleAprobar(pedido.id)}
-                      disabled={pedido.estado === "APROBADO"}
                     >
                       Aprobar
                     </button>
