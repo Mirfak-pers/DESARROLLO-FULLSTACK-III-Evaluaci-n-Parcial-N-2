@@ -16,7 +16,7 @@ function Envios() {
       setEnvios(data);
     } catch (error) {
       console.error("Error al cargar envíos", error);
-      alert("No se pudieron cargar los envíos. Revisa que el BFF esté ejecutándose.");
+      console.log("BFF no disponible para cargar envíos");
     }
   };
 

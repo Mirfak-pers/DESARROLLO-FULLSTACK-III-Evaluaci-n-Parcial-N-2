@@ -17,7 +17,7 @@ function Inventario() {
       setProductos(data);
     } catch (error) {
       console.error("Error al cargar productos", error);
-      alert("No se pudieron cargar los productos. Revisa que el BFF esté ejecutándose.");
+      console.log("BFF no disponible para cargar productos");
     }
   };
 

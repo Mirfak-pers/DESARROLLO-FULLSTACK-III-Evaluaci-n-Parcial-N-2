@@ -19,7 +19,7 @@ function Pedidos() {
       setPedidos(data);
     } catch (error) {
       console.error("Error al cargar pedidos", error);
-      alert("No se pudieron cargar los pedidos. Revisa que el BFF esté ejecutándose.");
+      console.log("BFF no disponible para cargar pedidos"); 
     }
   };
 
