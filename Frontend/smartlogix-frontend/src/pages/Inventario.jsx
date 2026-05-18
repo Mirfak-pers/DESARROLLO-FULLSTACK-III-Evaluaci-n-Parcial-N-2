@@ -57,10 +57,21 @@ function Inventario() {
       return;
     }
 
+    const codigoExiste = productos.some(
+      (producto) =>
+        String(producto.codigo).trim().toLowerCase() ===
+        String(form.codigo).trim().toLowerCase()
+    );
+
+    if (codigoExiste) {
+      alert("Código ya usado, ingrese otro");
+      return;
+    }
+
     const nuevoProducto = {
-      codigo: form.codigo,
-      nombre: form.nombre,
-      descripcion: form.descripcion,
+      codigo: form.codigo.trim(),
+      nombre: form.nombre.trim(),
+      descripcion: form.descripcion.trim(),
       precio: Number(form.precio),
       stock: Number(form.stock),
     };
