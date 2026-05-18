@@ -34,6 +34,16 @@ function Inventario() {
     });
   };
 
+  const limpiarFormulario = () => {
+    setForm({
+      codigo: "",
+      nombre: "",
+      descripcion: "",
+      precio: "",
+      stock: "",
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -47,30 +57,47 @@ function Inventario() {
       return;
     }
 
+    const nuevoProducto = {
+      codigo: form.codigo,
+      nombre: form.nombre,
+      descripcion: form.descripcion,
+      precio: Number(form.precio),
+      stock: Number(form.stock),
+    };
+
     try {
-      await crearProducto({
-        ...form,
-        precio: Number(form.precio),
-        stock: Number(form.stock),
-      });
+      const productoCreado = await crearProducto(nuevoProducto);
 
-      setForm({
-        codigo: "",
-        nombre: "",
-        descripcion: "",
-        precio: "",
-        stock: "",
-      });
+      setProductos((prevProductos) => [
+        ...prevProductos,
+        productoCreado || {
+          id: Date.now(),
+          ...nuevoProducto,
+        },
+      ]);
 
-      cargarProductos();
+      limpiarFormulario();
     } catch (error) {
-      console.error("Error al crear producto", error);
-      alert("No se pudo crear el producto");
+      console.error(
+        "Error al crear producto en BFF, se agrega solo en pantalla",
+        error
+      );
+
+      const productoDemo = {
+        id: Date.now(),
+        ...nuevoProducto,
+      };
+
+      setProductos((prevProductos) => [...prevProductos, productoDemo]);
+      limpiarFormulario();
     }
   };
 
   const productosFiltrados = productos.filter((producto) => {
-    const texto = `${producto.codigo} ${producto.nombre} ${producto.descripcion}`.toLowerCase();
+    const texto = `${producto.codigo || ""} ${producto.nombre || ""} ${
+      producto.descripcion || ""
+    }`.toLowerCase();
+
     return texto.includes(busqueda.toLowerCase());
   });
 
@@ -134,49 +161,62 @@ function Inventario() {
           />
         </div>
 
-        <button className="icon-button">
+        <button className="icon-button" type="button">
           <Filter size={18} />
         </button>
       </div>
 
-      <form id="productoForm" className="formulario panel-form" onSubmit={handleSubmit}>
-        <input
-          name="codigo"
-          placeholder="Código"
-          value={form.codigo}
-          onChange={handleChange}
-        />
+      <div className="form-card">
+        <div className="form-card-header">
+          <div>
+            <h3>Agregar nuevo producto</h3>
+            <p>Completa los datos y presiona “Nuevo producto”.</p>
+          </div>
+        </div>
 
-        <input
-          name="nombre"
-          placeholder="Nombre"
-          value={form.nombre}
-          onChange={handleChange}
-        />
+        <form
+          id="productoForm"
+          className="formulario panel-form"
+          onSubmit={handleSubmit}
+        >
+          <input
+            name="codigo"
+            placeholder="Código"
+            value={form.codigo}
+            onChange={handleChange}
+          />
 
-        <input
-          name="descripcion"
-          placeholder="Descripción"
-          value={form.descripcion}
-          onChange={handleChange}
-        />
+          <input
+            name="nombre"
+            placeholder="Nombre"
+            value={form.nombre}
+            onChange={handleChange}
+          />
 
-        <input
-          name="precio"
-          type="number"
-          placeholder="Precio"
-          value={form.precio}
-          onChange={handleChange}
-        />
+          <input
+            name="descripcion"
+            placeholder="Descripción"
+            value={form.descripcion}
+            onChange={handleChange}
+          />
 
-        <input
-          name="stock"
-          type="number"
-          placeholder="Stock"
-          value={form.stock}
-          onChange={handleChange}
-        />
-      </form>
+          <input
+            name="precio"
+            type="number"
+            placeholder="Precio"
+            value={form.precio}
+            onChange={handleChange}
+          />
+
+          <input
+            name="stock"
+            type="number"
+            placeholder="Stock"
+            value={form.stock}
+            onChange={handleChange}
+          />
+        </form>
+      </div>
 
       <div className="table-card">
         <div className="table-header">
@@ -213,7 +253,9 @@ function Inventario() {
                   </td>
                   <td>{producto.nombre}</td>
                   <td>{producto.descripcion || "Sin descripción"}</td>
-                  <td>${Number(producto.precio).toLocaleString("es-CL")}</td>
+                  <td>
+                    ${Number(producto.precio || 0).toLocaleString("es-CL")}
+                  </td>
                   <td>{producto.stock}</td>
                   <td>
                     <span

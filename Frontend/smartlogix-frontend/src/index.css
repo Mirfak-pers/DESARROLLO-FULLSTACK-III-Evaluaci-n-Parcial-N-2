@@ -22,9 +22,16 @@ a {
   align-items: center;
 }
 
-.navbar h2 {
-  margin: 0;
-  letter-spacing: -0.5px;
+.brand-logo {
+  color: white;
+  text-decoration: none;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.8px;
+}
+
+.brand-logo:hover {
+  color: #dbeafe;
 }
 
 .nav-links {
@@ -347,6 +354,8 @@ a {
   font-size: 14px;
 }
 
+/* Formulario */
+
 .formulario {
   background: white;
   padding: 20px;
@@ -354,6 +363,35 @@ a {
   display: grid;
   gap: 12px;
   border: 1px solid #e5e7eb;
+}
+
+.form-card {
+  background: white;
+  border-radius: 22px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.05);
+}
+
+.form-card-header {
+  margin-bottom: 16px;
+}
+
+.form-card-header h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.form-card-header p {
+  margin: 6px 0 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.form-card .formulario {
+  padding: 0;
+  border: none;
+  box-shadow: none;
 }
 
 .panel-form {
@@ -379,6 +417,8 @@ input:focus {
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
 }
+
+/* Tabla */
 
 .table-card {
   background: white;
@@ -458,6 +498,8 @@ tbody tr:hover {
   color: #b91c1c;
 }
 
+/* Responsive */
+
 @media (max-width: 1000px) {
   .hero,
   .module-grid,
@@ -490,6 +532,11 @@ tbody tr:hover {
   .navbar {
     flex-direction: column;
     gap: 12px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .table-card {

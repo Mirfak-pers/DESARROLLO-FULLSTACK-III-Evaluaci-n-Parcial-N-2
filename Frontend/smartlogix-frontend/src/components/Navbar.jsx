@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <nav className="navbar">
-      <h2>SmartLogix</h2>
+      <Link to="/" className="brand-logo">
+        SmartLogix
+      </Link>
 
       <div className="nav-links">
         <Link to="/">Dashboard</Link>
