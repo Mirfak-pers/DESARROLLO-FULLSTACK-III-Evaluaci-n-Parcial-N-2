@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { Plus, RefreshCcw, Search, Truck } from "lucide-react";
 import { crearEnvio, obtenerEnvios } from "../services/enviosService";
 
 function Envios() {
   const [envios, setEnvios] = useState([]);
+  const [busqueda, setBusqueda] = useState("");
   const [form, setForm] = useState({
     pedidoId: "",
     direccion: "",
@@ -66,11 +68,70 @@ function Envios() {
     }
   };
 
-  return (
-    <section>
-      <h1>Envíos</h1>
+  const enviosFiltrados = envios.filter((envio) => {
+    const texto = `${envio.id} ${envio.pedidoId} ${envio.direccion} ${envio.transportista} ${envio.estado}`.toLowerCase();
+    return texto.includes(busqueda.toLowerCase());
+  });
 
-      <form className="formulario" onSubmit={handleSubmit}>
+  return (
+    <section className="page-panel">
+      <div className="page-header">
+        <div className="page-title">
+          <div className="title-icon">
+            <Truck size={26} />
+          </div>
+          <div>
+            <h1>Envíos</h1>
+            <p>Coordinación de despachos, transportistas y entregas.</p>
+          </div>
+        </div>
+
+        <div className="header-actions">
+          <button className="btn-secondary" onClick={cargarEnvios}>
+            <RefreshCcw size={17} />
+            Actualizar
+          </button>
+
+          <button className="btn-primary" type="submit" form="envioForm">
+            <Plus size={17} />
+            Nuevo envío
+          </button>
+        </div>
+      </div>
+
+      <div className="stats-row">
+        <div className="stat-card">
+          <span>Total envíos</span>
+          <strong>{envios.length}</strong>
+        </div>
+
+        <div className="stat-card">
+          <span>En tránsito</span>
+          <strong>
+            {envios.filter((envio) => envio.estado === "EN_TRANSITO").length}
+          </strong>
+        </div>
+
+        <div className="stat-card">
+          <span>Entregados</span>
+          <strong>
+            {envios.filter((envio) => envio.estado === "ENTREGADO").length}
+          </strong>
+        </div>
+      </div>
+
+      <div className="toolbar">
+        <div className="search-box">
+          <Search size={18} />
+          <input
+            placeholder="Buscar por pedido, dirección, transportista o estado"
+            value={busqueda}
+            onChange={(e) => setBusqueda(e.target.value)}
+          />
+        </div>
+      </div>
+
+      <form id="envioForm" className="formulario panel-form envios-form" onSubmit={handleSubmit}>
         <input
           name="pedidoId"
           type="number"
@@ -99,39 +160,62 @@ function Envios() {
           value={form.fechaEstimada}
           onChange={handleChange}
         />
-
-        <button type="submit">Crear envío</button>
       </form>
 
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Pedido</th>
-            <th>Dirección</th>
-            <th>Transportista</th>
-            <th>Estado</th>
-          </tr>
-        </thead>
+      <div className="table-card">
+        <div className="table-header">
+          <h3>Listado de envíos</h3>
+          <span>{enviosFiltrados.length} resultados</span>
+        </div>
 
-        <tbody>
-          {envios.length === 0 ? (
+        <table>
+          <thead>
             <tr>
-              <td colSpan="5">No hay envíos registrados</td>
+              <th>ID</th>
+              <th>Pedido</th>
+              <th>Dirección</th>
+              <th>Transportista</th>
+              <th>Fecha estimada</th>
+              <th>Estado</th>
             </tr>
-          ) : (
-            envios.map((envio) => (
-              <tr key={envio.id}>
-                <td>{envio.id}</td>
-                <td>{envio.pedidoId}</td>
-                <td>{envio.direccion}</td>
-                <td>{envio.transportista}</td>
-                <td>{envio.estado}</td>
+          </thead>
+
+          <tbody>
+            {enviosFiltrados.length === 0 ? (
+              <tr>
+                <td colSpan="6" className="empty-row">
+                  No hay envíos registrados
+                </td>
               </tr>
-            ))
-          )}
-        </tbody>
-      </table>
+            ) : (
+              enviosFiltrados.map((envio) => (
+                <tr key={envio.id}>
+                  <td>
+                    <strong>#{envio.id}</strong>
+                  </td>
+                  <td>{envio.pedidoId}</td>
+                  <td>{envio.direccion}</td>
+                  <td>{envio.transportista}</td>
+                  <td>{envio.fechaEstimada || "Sin fecha"}</td>
+                  <td>
+                    <span
+                      className={
+                        envio.estado === "ENTREGADO"
+                          ? "badge badge-success"
+                          : envio.estado === "INCIDENCIA"
+                          ? "badge badge-danger"
+                          : "badge badge-warning"
+                      }
+                    >
+                      {envio.estado || "PENDIENTE"}
+                    </span>
+                  </td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 }

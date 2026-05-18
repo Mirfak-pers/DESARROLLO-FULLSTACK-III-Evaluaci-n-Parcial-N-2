@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { ClipboardList, Plus, RefreshCcw, Search } from "lucide-react";
 import {
   aprobarPedido,
   crearPedido,
@@ -7,6 +8,7 @@ import {
 
 function Pedidos() {
   const [pedidos, setPedidos] = useState([]);
+  const [busqueda, setBusqueda] = useState("");
   const [form, setForm] = useState({
     cliente: "",
     productoId: "",
@@ -19,7 +21,7 @@ function Pedidos() {
       setPedidos(data);
     } catch (error) {
       console.error("Error al cargar pedidos", error);
-      console.log("BFF no disponible para cargar pedidos"); 
+      console.log("BFF no disponible para cargar pedidos");
     }
   };
 
@@ -81,11 +83,70 @@ function Pedidos() {
     }
   };
 
-  return (
-    <section>
-      <h1>Pedidos</h1>
+  const pedidosFiltrados = pedidos.filter((pedido) => {
+    const texto = `${pedido.id} ${pedido.cliente} ${pedido.estado}`.toLowerCase();
+    return texto.includes(busqueda.toLowerCase());
+  });
 
-      <form className="formulario" onSubmit={handleSubmit}>
+  return (
+    <section className="page-panel">
+      <div className="page-header">
+        <div className="page-title">
+          <div className="title-icon">
+            <ClipboardList size={26} />
+          </div>
+          <div>
+            <h1>Pedidos</h1>
+            <p>Creación, validación y seguimiento de pedidos.</p>
+          </div>
+        </div>
+
+        <div className="header-actions">
+          <button className="btn-secondary" onClick={cargarPedidos}>
+            <RefreshCcw size={17} />
+            Actualizar
+          </button>
+
+          <button className="btn-primary" type="submit" form="pedidoForm">
+            <Plus size={17} />
+            Nuevo pedido
+          </button>
+        </div>
+      </div>
+
+      <div className="stats-row">
+        <div className="stat-card">
+          <span>Total pedidos</span>
+          <strong>{pedidos.length}</strong>
+        </div>
+
+        <div className="stat-card">
+          <span>Pendientes</span>
+          <strong>
+            {pedidos.filter((pedido) => pedido.estado !== "APROBADO").length}
+          </strong>
+        </div>
+
+        <div className="stat-card">
+          <span>Aprobados</span>
+          <strong>
+            {pedidos.filter((pedido) => pedido.estado === "APROBADO").length}
+          </strong>
+        </div>
+      </div>
+
+      <div className="toolbar">
+        <div className="search-box">
+          <Search size={18} />
+          <input
+            placeholder="Buscar por cliente, ID o estado"
+            value={busqueda}
+            onChange={(e) => setBusqueda(e.target.value)}
+          />
+        </div>
+      </div>
+
+      <form id="pedidoForm" className="formulario panel-form pedidos-form" onSubmit={handleSubmit}>
         <input
           name="cliente"
           placeholder="Cliente"
@@ -108,41 +169,65 @@ function Pedidos() {
           value={form.cantidad}
           onChange={handleChange}
         />
-
-        <button type="submit">Crear pedido</button>
       </form>
 
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Cliente</th>
-            <th>Estado</th>
-            <th>Acción</th>
-          </tr>
-        </thead>
+      <div className="table-card">
+        <div className="table-header">
+          <h3>Listado de pedidos</h3>
+          <span>{pedidosFiltrados.length} resultados</span>
+        </div>
 
-        <tbody>
-          {pedidos.length === 0 ? (
+        <table>
+          <thead>
             <tr>
-              <td colSpan="4">No hay pedidos registrados</td>
+              <th>ID</th>
+              <th>Cliente</th>
+              <th>Estado</th>
+              <th>Acción</th>
             </tr>
-          ) : (
-            pedidos.map((pedido) => (
-              <tr key={pedido.id}>
-                <td>{pedido.id}</td>
-                <td>{pedido.cliente}</td>
-                <td>{pedido.estado}</td>
-                <td>
-                  <button onClick={() => handleAprobar(pedido.id)}>
-                    Aprobar
-                  </button>
+          </thead>
+
+          <tbody>
+            {pedidosFiltrados.length === 0 ? (
+              <tr>
+                <td colSpan="4" className="empty-row">
+                  No hay pedidos registrados
                 </td>
               </tr>
-            ))
-          )}
-        </tbody>
-      </table>
+            ) : (
+              pedidosFiltrados.map((pedido) => (
+                <tr key={pedido.id}>
+                  <td>
+                    <strong>#{pedido.id}</strong>
+                  </td>
+                  <td>{pedido.cliente}</td>
+                  <td>
+                    <span
+                      className={
+                        pedido.estado === "APROBADO"
+                          ? "badge badge-success"
+                          : pedido.estado === "RECHAZADO"
+                          ? "badge badge-danger"
+                          : "badge badge-warning"
+                      }
+                    >
+                      {pedido.estado}
+                    </span>
+                  </td>
+                  <td>
+                    <button
+                      className="btn-small"
+                      onClick={() => handleAprobar(pedido.id)}
+                    >
+                      Aprobar
+                    </button>
+                  </td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 }
