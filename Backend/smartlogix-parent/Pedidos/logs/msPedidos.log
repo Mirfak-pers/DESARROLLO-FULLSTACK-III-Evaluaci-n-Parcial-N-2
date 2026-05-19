@@ -271,3 +271,386 @@ Consider renaming one of the beans or enabling overriding by setting spring.main
 2026-05-18 22:01:16 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
 2026-05-18 22:06:16 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
 2026-05-18 22:11:16 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:16:16 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:16:53 INFO  [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-18 22:16:53 INFO  [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-18 22:16:53 INFO  [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-18 22:21:16 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:26:16 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:31:16 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:36:16 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:41:16 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:46:16 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:51:16 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:52:14 INFO  [http-nio-8082-exec-4] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 22:52:15 INFO  [http-nio-8082-exec-5] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 22:53:31 INFO  [http-nio-8082-exec-6] c.s.pedidos.service.PedidoService - Creando pedido para cliente: elloco
+2026-05-18 22:53:31 INFO  [http-nio-8082-exec-6] c.s.pedidos.service.PedidoService - Validando producto ID 1 cantidad 500
+2026-05-18 22:53:31 INFO  [http-nio-8082-exec-6] c.s.p.s.InventarioClientService - Consultando Inventario para producto ID: 1
+2026-05-18 22:53:31 ERROR [http-nio-8082-exec-6] c.s.p.s.InventarioClientService - Circuit Breaker activado al consultar Inventario. Producto ID: 1. Error: 401 : [no body]
+2026-05-18 22:53:31 WARN  [http-nio-8082-exec-6] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.smartlogix.pedidos.exception.StockNoDisponibleException: No se pudo consultar Inventario. Circuit Breaker activado para producto ID: 1]
+2026-05-18 22:55:06 INFO  [http-nio-8082-exec-7] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 22:55:06 INFO  [http-nio-8082-exec-8] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 22:55:21 INFO  [http-nio-8082-exec-9] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 22:55:21 INFO  [http-nio-8082-exec-10] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 22:55:29 INFO  [http-nio-8082-exec-1] c.s.pedidos.service.PedidoService - Creando pedido para cliente: elloco
+2026-05-18 22:55:29 INFO  [http-nio-8082-exec-1] c.s.pedidos.service.PedidoService - Validando producto ID 1 cantidad 5
+2026-05-18 22:55:29 INFO  [http-nio-8082-exec-1] c.s.p.s.InventarioClientService - Consultando Inventario para producto ID: 1
+2026-05-18 22:55:29 ERROR [http-nio-8082-exec-1] c.s.p.s.InventarioClientService - Circuit Breaker activado al consultar Inventario. Producto ID: 1. Error: 401 : [no body]
+2026-05-18 22:55:29 WARN  [http-nio-8082-exec-1] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.smartlogix.pedidos.exception.StockNoDisponibleException: No se pudo consultar Inventario. Circuit Breaker activado para producto ID: 1]
+2026-05-18 22:55:46 INFO  [http-nio-8082-exec-2] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 22:55:46 INFO  [http-nio-8082-exec-3] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 22:55:52 INFO  [http-nio-8082-exec-4] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 22:55:52 INFO  [http-nio-8082-exec-5] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 22:56:01 INFO  [http-nio-8082-exec-6] c.s.pedidos.service.PedidoService - Creando pedido para cliente: elloco
+2026-05-18 22:56:01 INFO  [http-nio-8082-exec-6] c.s.pedidos.service.PedidoService - Validando producto ID 1 cantidad 5
+2026-05-18 22:56:01 INFO  [http-nio-8082-exec-6] c.s.p.s.InventarioClientService - Consultando Inventario para producto ID: 1
+2026-05-18 22:56:01 ERROR [http-nio-8082-exec-6] c.s.p.s.InventarioClientService - Circuit Breaker activado al consultar Inventario. Producto ID: 1. Error: 401 : [no body]
+2026-05-18 22:56:01 WARN  [http-nio-8082-exec-6] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.smartlogix.pedidos.exception.StockNoDisponibleException: No se pudo consultar Inventario. Circuit Breaker activado para producto ID: 1]
+2026-05-18 22:56:16 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:56:20 INFO  [http-nio-8082-exec-7] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 22:56:20 INFO  [http-nio-8082-exec-8] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:00:04 INFO  [http-nio-8082-exec-9] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:00:04 INFO  [http-nio-8082-exec-10] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:01:16 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:06:16 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:11:16 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:12:35 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-18 23:12:35 INFO  [Thread-7] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application MSPEDIDOS with eureka with status DOWN
+2026-05-18 23:12:35 INFO  [Thread-7] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1779160355708, current=DOWN, previous=UP]
+2026-05-18 23:12:35 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082: registering service...
+2026-05-18 23:12:35 INFO  [Thread-7] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18 23:12:35 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082 - registration status: 204
+2026-05-18 23:12:35 INFO  [Thread-7] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2026-05-18 23:12:35 INFO  [Thread-7] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2026-05-18 23:12:35 INFO  [Thread-7] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-05-18 23:12:38 INFO  [Thread-7] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-05-18 23:12:38 INFO  [Thread-7] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082 - deregister  status: 200
+2026-05-18 23:12:38 INFO  [Thread-7] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-05-18 23:12:38 INFO  [restartedMain] c.s.msPedidos.MsPedidosApplication - Starting MsPedidosApplication using Java 25.0.2 with PID 26256 (C:\Users\gubif\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Pedidos\target\classes started by Gubier in C:\Users\gubif\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Pedidos)
+2026-05-18 23:12:38 DEBUG [restartedMain] c.s.msPedidos.MsPedidosApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-05-18 23:12:38 INFO  [restartedMain] c.s.msPedidos.MsPedidosApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-18 23:12:39 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-18 23:12:39 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 28 ms. Found 2 JPA repository interfaces.
+2026-05-18 23:12:39 INFO  [restartedMain] o.s.cloud.context.scope.GenericScope - BeanFactory id=e28185a4-1551-37e7-81c4-7055f3bb6cfa
+2026-05-18 23:12:39 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-05-18 23:12:39 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-05-18 23:12:39 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2026-05-18 23:12:39 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-18 23:12:39 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-05-18 23:12:39 INFO  [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-18 23:12:39 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 900 ms
+2026-05-18 23:12:40 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-18 23:12:40 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-18 23:12:40 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-18 23:12:40 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2026-05-18 23:12:40 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5607ba7b
+2026-05-18 23:12:40 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2026-05-18 23:12:40 WARN  [restartedMain] org.hibernate.dialect.Dialect - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-05-18 23:12:40 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-18 23:12:40 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-18 23:12:40 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18 23:12:40 WARN  [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-18 23:12:41 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver - Exposing 4 endpoints beneath base path '/actuator'
+2026-05-18 23:12:41 WARN  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2026-05-18 23:12:41 INFO  [restartedMain] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2026-05-18 23:12:41 WARN  [restartedMain] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-05-18 23:12:41 INFO  [restartedMain] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-05-18 23:12:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-05-18 23:12:41 INFO  [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:12:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-05-18 23:12:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-05-18 23:12:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-05-18 23:12:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-05-18 23:12:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-05-18 23:12:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-05-18 23:12:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-05-18 23:12:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-05-18 23:12:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-05-18 23:12:41 INFO  [restartedMain] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-05-18 23:12:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1779160361964 with initial instances count: 5
+2026-05-18 23:12:41 INFO  [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry - Registering application MSPEDIDOS with eureka with status UP
+2026-05-18 23:12:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1779160361974, current=UP, previous=STARTING]
+2026-05-18 23:12:41 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082: registering service...
+2026-05-18 23:12:41 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
+2026-05-18 23:12:41 INFO  [restartedMain] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8082
+2026-05-18 23:12:41 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082 - registration status: 204
+2026-05-18 23:12:42 INFO  [restartedMain] c.s.msPedidos.MsPedidosApplication - Started MsPedidosApplication in 3.146 seconds (process running for 7135.007)
+2026-05-18 23:12:42 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2026-05-18 23:13:46 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-05-18 23:13:46 INFO  [Thread-17] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application MSPEDIDOS with eureka with status DOWN
+2026-05-18 23:13:46 INFO  [Thread-17] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1779160426682, current=DOWN, previous=UP]
+2026-05-18 23:13:46 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082: registering service...
+2026-05-18 23:13:46 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082 - registration status: 204
+2026-05-18 23:13:46 INFO  [Thread-17] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18 23:13:46 INFO  [Thread-17] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2026-05-18 23:13:46 INFO  [Thread-17] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2026-05-18 23:13:46 INFO  [Thread-17] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-05-18 23:13:49 INFO  [Thread-17] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-05-18 23:13:49 INFO  [Thread-17] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082 - deregister  status: 200
+2026-05-18 23:13:49 INFO  [Thread-17] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-05-18 23:13:49 INFO  [restartedMain] c.s.msPedidos.MsPedidosApplication - Starting MsPedidosApplication using Java 25.0.2 with PID 26256 (C:\Users\gubif\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Pedidos\target\classes started by Gubier in C:\Users\gubif\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Pedidos)
+2026-05-18 23:13:49 DEBUG [restartedMain] c.s.msPedidos.MsPedidosApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-05-18 23:13:49 INFO  [restartedMain] c.s.msPedidos.MsPedidosApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-18 23:13:49 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-18 23:13:49 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 2 JPA repository interfaces.
+2026-05-18 23:13:50 INFO  [restartedMain] o.s.cloud.context.scope.GenericScope - BeanFactory id=e28185a4-1551-37e7-81c4-7055f3bb6cfa
+2026-05-18 23:13:50 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-05-18 23:13:50 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-05-18 23:13:50 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2026-05-18 23:13:50 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-18 23:13:50 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-05-18 23:13:50 INFO  [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-18 23:13:50 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 398 ms
+2026-05-18 23:13:50 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-18 23:13:50 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-18 23:13:50 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-18 23:13:50 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+2026-05-18 23:13:50 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@62d14a8f
+2026-05-18 23:13:50 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+2026-05-18 23:13:50 WARN  [restartedMain] org.hibernate.dialect.Dialect - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-05-18 23:13:50 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-18 23:13:50 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-18 23:13:50 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18 23:13:50 WARN  [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-18 23:13:50 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver - Exposing 4 endpoints beneath base path '/actuator'
+2026-05-18 23:13:51 WARN  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2026-05-18 23:13:51 INFO  [restartedMain] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2026-05-18 23:13:51 WARN  [restartedMain] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-05-18 23:13:51 INFO  [restartedMain] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-05-18 23:13:51 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-05-18 23:13:51 INFO  [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:13:51 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-05-18 23:13:51 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-05-18 23:13:51 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-05-18 23:13:51 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-05-18 23:13:51 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-05-18 23:13:51 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-05-18 23:13:51 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-05-18 23:13:51 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-05-18 23:13:51 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-05-18 23:13:51 INFO  [restartedMain] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-05-18 23:13:51 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1779160431553 with initial instances count: 5
+2026-05-18 23:13:51 INFO  [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry - Registering application MSPEDIDOS with eureka with status UP
+2026-05-18 23:13:51 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1779160431559, current=UP, previous=STARTING]
+2026-05-18 23:13:51 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082: registering service...
+2026-05-18 23:13:51 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
+2026-05-18 23:13:51 INFO  [restartedMain] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8082
+2026-05-18 23:13:51 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082 - registration status: 204
+2026-05-18 23:13:51 INFO  [restartedMain] c.s.msPedidos.MsPedidosApplication - Started MsPedidosApplication in 1.792 seconds (process running for 7204.56)
+2026-05-18 23:13:51 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2026-05-18 23:14:36 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 24 class path changes (0 additions, 0 deletions, 24 modifications)
+2026-05-18 23:14:36 INFO  [Thread-23] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application MSPEDIDOS with eureka with status DOWN
+2026-05-18 23:14:36 INFO  [Thread-23] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1779160476253, current=DOWN, previous=UP]
+2026-05-18 23:14:36 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082: registering service...
+2026-05-18 23:14:36 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082 - registration status: 204
+2026-05-18 23:14:36 INFO  [Thread-23] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18 23:14:36 INFO  [Thread-23] com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+2026-05-18 23:14:36 INFO  [Thread-23] com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+2026-05-18 23:14:36 INFO  [Thread-23] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-05-18 23:14:39 INFO  [Thread-23] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-05-18 23:14:39 INFO  [Thread-23] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082 - deregister  status: 200
+2026-05-18 23:14:39 INFO  [Thread-23] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-05-18 23:14:39 INFO  [restartedMain] c.s.msPedidos.MsPedidosApplication - Starting MsPedidosApplication using Java 25.0.2 with PID 26256 (C:\Users\gubif\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Pedidos\target\classes started by Gubier in C:\Users\gubif\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Pedidos)
+2026-05-18 23:14:39 DEBUG [restartedMain] c.s.msPedidos.MsPedidosApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-05-18 23:14:39 INFO  [restartedMain] c.s.msPedidos.MsPedidosApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-18 23:14:39 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-18 23:14:39 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 2 JPA repository interfaces.
+2026-05-18 23:14:39 INFO  [restartedMain] o.s.cloud.context.scope.GenericScope - BeanFactory id=e28185a4-1551-37e7-81c4-7055f3bb6cfa
+2026-05-18 23:14:39 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-05-18 23:14:39 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-05-18 23:14:39 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2026-05-18 23:14:39 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-18 23:14:39 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-05-18 23:14:39 INFO  [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-18 23:14:39 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 435 ms
+2026-05-18 23:14:39 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-18 23:14:39 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-18 23:14:39 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-18 23:14:39 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
+2026-05-18 23:14:39 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@769ffc0e
+2026-05-18 23:14:39 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
+2026-05-18 23:14:39 WARN  [restartedMain] org.hibernate.dialect.Dialect - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-05-18 23:14:39 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-18 23:14:40 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-18 23:14:40 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18 23:14:40 WARN  [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-18 23:14:40 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver - Exposing 4 endpoints beneath base path '/actuator'
+2026-05-18 23:14:41 WARN  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2026-05-18 23:14:41 INFO  [restartedMain] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2026-05-18 23:14:41 WARN  [restartedMain] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-05-18 23:14:41 INFO  [restartedMain] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-05-18 23:14:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-05-18 23:14:41 INFO  [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:14:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-05-18 23:14:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-05-18 23:14:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-05-18 23:14:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-05-18 23:14:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-05-18 23:14:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-05-18 23:14:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-05-18 23:14:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-05-18 23:14:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-05-18 23:14:41 INFO  [restartedMain] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-05-18 23:14:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1779160481322 with initial instances count: 5
+2026-05-18 23:14:41 INFO  [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry - Registering application MSPEDIDOS with eureka with status UP
+2026-05-18 23:14:41 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1779160481328, current=UP, previous=STARTING]
+2026-05-18 23:14:41 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082: registering service...
+2026-05-18 23:14:41 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
+2026-05-18 23:14:41 INFO  [restartedMain] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8082
+2026-05-18 23:14:41 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082 - registration status: 204
+2026-05-18 23:14:41 INFO  [restartedMain] c.s.msPedidos.MsPedidosApplication - Started MsPedidosApplication in 1.968 seconds (process running for 7254.336)
+2026-05-18 23:14:41 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2026-05-18 23:15:08 INFO  [restartedMain] c.s.msPedidos.MsPedidosApplication - Starting MsPedidosApplication using Java 25.0.2 with PID 31340 (C:\Users\gubif\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Pedidos\target\classes started by Gubier in C:\Users\gubif\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Pedidos)
+2026-05-18 23:15:08 DEBUG [restartedMain] c.s.msPedidos.MsPedidosApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-05-18 23:15:08 INFO  [restartedMain] c.s.msPedidos.MsPedidosApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-18 23:15:08 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-18 23:15:08 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-18 23:15:09 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-18 23:15:09 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 82 ms. Found 2 JPA repository interfaces.
+2026-05-18 23:15:09 INFO  [restartedMain] o.s.cloud.context.scope.GenericScope - BeanFactory id=e28185a4-1551-37e7-81c4-7055f3bb6cfa
+2026-05-18 23:15:10 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-05-18 23:15:10 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-05-18 23:15:10 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2026-05-18 23:15:10 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-18 23:15:10 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-05-18 23:15:10 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-18 23:15:10 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2263 ms
+2026-05-18 23:15:11 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-18 23:15:11 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-05-18 23:15:11 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-18 23:15:11 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-18 23:15:11 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-18 23:15:11 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1eeadf30
+2026-05-18 23:15:11 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-18 23:15:11 WARN  [restartedMain] org.hibernate.dialect.Dialect - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-05-18 23:15:11 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-18 23:15:12 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-18 23:15:12 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18 23:15:13 WARN  [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-18 23:15:13 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver - Exposing 4 endpoints beneath base path '/actuator'
+2026-05-18 23:15:14 WARN  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2026-05-18 23:15:14 INFO  [restartedMain] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2026-05-18 23:15:15 WARN  [restartedMain] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-05-18 23:15:15 INFO  [restartedMain] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-05-18 23:15:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-05-18 23:15:15 INFO  [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:15:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-05-18 23:15:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-05-18 23:15:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-05-18 23:15:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-05-18 23:15:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-05-18 23:15:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-05-18 23:15:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-05-18 23:15:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-05-18 23:15:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-05-18 23:15:15 INFO  [restartedMain] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-05-18 23:15:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1779160515409 with initial instances count: 5
+2026-05-18 23:15:15 INFO  [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry - Registering application MSPEDIDOS with eureka with status UP
+2026-05-18 23:15:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1779160515422, current=UP, previous=STARTING]
+2026-05-18 23:15:15 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082: registering service...
+2026-05-18 23:15:15 INFO  [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application MSPEDIDOS with eureka with status DOWN
+2026-05-18 23:15:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1779160515427, current=DOWN, previous=UP]
+2026-05-18 23:15:15 WARN  [restartedMain] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-05-18 23:15:15 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18 23:15:15 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-18 23:15:15 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-05-18 23:15:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-05-18 23:15:15 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082 - registration status: 204
+2026-05-18 23:15:15 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082: registering service...
+2026-05-18 23:15:15 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082 - registration status: 204
+2026-05-18 23:15:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-05-18 23:15:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082 - deregister  status: 200
+2026-05-18 23:15:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-05-18 23:15:15 INFO  [restartedMain] o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-05-18 23:15:15 ERROR [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8082 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8082 or configure this application to listen on another port.
+
+2026-05-18 23:15:41 INFO  [DiscoveryClient-HeartbeatExecutor-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082 - Re-registering apps/MSPEDIDOS
+2026-05-18 23:15:41 INFO  [DiscoveryClient-HeartbeatExecutor-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082: registering service...
+2026-05-18 23:15:41 INFO  [DiscoveryClient-HeartbeatExecutor-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MSPEDIDOS/msPedidos:8082 - registration status: 204
+2026-05-18 23:16:37 INFO  [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-18 23:16:37 INFO  [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-18 23:16:37 INFO  [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-18 23:16:37 INFO  [http-nio-8082-exec-1] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:16:37 INFO  [http-nio-8082-exec-2] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:16:37 INFO  [http-nio-8082-exec-3] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:16:37 INFO  [http-nio-8082-exec-4] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:19:41 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:20:40 INFO  [http-nio-8082-exec-10] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:20:40 INFO  [http-nio-8082-exec-6] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:20:54 INFO  [http-nio-8082-exec-7] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:20:54 INFO  [http-nio-8082-exec-8] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:21:12 INFO  [http-nio-8082-exec-9] c.s.pedidos.service.PedidoService - Creando pedido para cliente: elloco
+2026-05-18 23:21:12 INFO  [http-nio-8082-exec-9] c.s.pedidos.service.PedidoService - Validando producto ID 1 cantidad 5
+2026-05-18 23:21:12 INFO  [http-nio-8082-exec-9] c.s.p.s.InventarioClientService - Consultando Inventario para producto ID: 1
+2026-05-18 23:21:12 INFO  [http-nio-8082-exec-9] c.s.pedidos.service.PedidoService - Pedido creado correctamente ID: 1
+2026-05-18 23:21:12 INFO  [http-nio-8082-exec-9] c.s.pedidos.service.PedidoService - Descontando stock producto 1 cantidad 5
+2026-05-18 23:21:12 INFO  [http-nio-8082-exec-9] c.s.p.s.InventarioClientService - Solicitando descuento de stock en Inventario. Producto ID: 1, cantidad: 5
+2026-05-18 23:21:12 INFO  [http-nio-8082-exec-9] c.s.pedidos.service.PedidoService - Pedido validado correctamente ID: 1
+2026-05-18 23:21:12 INFO  [http-nio-8082-exec-5] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:21:17 INFO  [http-nio-8082-exec-1] c.s.pedidos.service.PedidoService - Cambiando estado del pedido ID 1 a APROBADO
+2026-05-18 23:21:17 INFO  [http-nio-8082-exec-1] c.s.pedidos.service.PedidoService - Buscando pedido ID: 1
+2026-05-18 23:21:17 INFO  [http-nio-8082-exec-1] c.s.pedidos.service.PedidoService - Estado actualizado correctamente para pedido 1
+2026-05-18 23:21:17 INFO  [http-nio-8082-exec-2] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:21:24 INFO  [http-nio-8082-exec-3] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:21:24 INFO  [http-nio-8082-exec-4] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:22:13 INFO  [http-nio-8082-exec-10] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:22:13 INFO  [http-nio-8082-exec-6] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:22:15 INFO  [http-nio-8082-exec-7] c.s.pedidos.service.PedidoService - Cambiando estado del pedido ID 1 a APROBADO
+2026-05-18 23:22:15 INFO  [http-nio-8082-exec-7] c.s.pedidos.service.PedidoService - Buscando pedido ID: 1
+2026-05-18 23:22:15 INFO  [http-nio-8082-exec-7] c.s.pedidos.service.PedidoService - Estado actualizado correctamente para pedido 1
+2026-05-18 23:22:15 INFO  [http-nio-8082-exec-8] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:24:18 INFO  [http-nio-8082-exec-9] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:24:18 INFO  [http-nio-8082-exec-5] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:24:41 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:28:57 INFO  [http-nio-8082-exec-1] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:28:57 INFO  [http-nio-8082-exec-2] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:29:01 INFO  [http-nio-8082-exec-3] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:29:01 INFO  [http-nio-8082-exec-4] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:29:02 INFO  [http-nio-8082-exec-10] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:29:02 INFO  [http-nio-8082-exec-6] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:29:41 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:30:09 INFO  [http-nio-8082-exec-7] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:30:09 INFO  [http-nio-8082-exec-8] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:30:18 INFO  [http-nio-8082-exec-9] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:30:18 INFO  [http-nio-8082-exec-5] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:30:36 INFO  [http-nio-8082-exec-1] c.s.pedidos.service.PedidoService - Creando pedido para cliente: jose
+2026-05-18 23:30:36 INFO  [http-nio-8082-exec-1] c.s.pedidos.service.PedidoService - Validando producto ID 2 cantidad 2
+2026-05-18 23:30:36 INFO  [http-nio-8082-exec-1] c.s.p.s.InventarioClientService - Consultando Inventario para producto ID: 2
+2026-05-18 23:30:36 INFO  [http-nio-8082-exec-1] c.s.pedidos.service.PedidoService - Pedido creado correctamente ID: 2
+2026-05-18 23:30:36 INFO  [http-nio-8082-exec-1] c.s.pedidos.service.PedidoService - Descontando stock producto 2 cantidad 2
+2026-05-18 23:30:36 INFO  [http-nio-8082-exec-1] c.s.p.s.InventarioClientService - Solicitando descuento de stock en Inventario. Producto ID: 2, cantidad: 2
+2026-05-18 23:30:36 INFO  [http-nio-8082-exec-1] c.s.pedidos.service.PedidoService - Pedido validado correctamente ID: 2
+2026-05-18 23:30:36 INFO  [http-nio-8082-exec-2] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:30:55 INFO  [http-nio-8082-exec-3] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:30:55 INFO  [http-nio-8082-exec-4] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:30:56 INFO  [http-nio-8082-exec-10] c.s.pedidos.service.PedidoService - Cambiando estado del pedido ID 2 a APROBADO
+2026-05-18 23:30:56 INFO  [http-nio-8082-exec-10] c.s.pedidos.service.PedidoService - Buscando pedido ID: 2
+2026-05-18 23:30:57 INFO  [http-nio-8082-exec-10] c.s.pedidos.service.PedidoService - Estado actualizado correctamente para pedido 2
+2026-05-18 23:30:57 INFO  [http-nio-8082-exec-6] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:31:04 INFO  [http-nio-8082-exec-7] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:31:04 INFO  [http-nio-8082-exec-8] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:31:06 INFO  [http-nio-8082-exec-9] c.s.pedidos.service.PedidoService - Cambiando estado del pedido ID 2 a APROBADO
+2026-05-18 23:31:06 INFO  [http-nio-8082-exec-9] c.s.pedidos.service.PedidoService - Buscando pedido ID: 2
+2026-05-18 23:31:06 INFO  [http-nio-8082-exec-9] c.s.pedidos.service.PedidoService - Estado actualizado correctamente para pedido 2
+2026-05-18 23:31:06 INFO  [http-nio-8082-exec-5] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:31:06 INFO  [http-nio-8082-exec-1] c.s.pedidos.service.PedidoService - Cambiando estado del pedido ID 2 a APROBADO
+2026-05-18 23:31:06 INFO  [http-nio-8082-exec-1] c.s.pedidos.service.PedidoService - Buscando pedido ID: 2
+2026-05-18 23:31:06 INFO  [http-nio-8082-exec-1] c.s.pedidos.service.PedidoService - Estado actualizado correctamente para pedido 2
+2026-05-18 23:31:06 INFO  [http-nio-8082-exec-2] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:31:16 INFO  [http-nio-8082-exec-3] c.s.pedidos.service.PedidoService - Listando todos los pedidos
+2026-05-18 23:31:17 INFO  [http-nio-8082-exec-4] c.s.pedidos.service.PedidoService - Listando todos los pedidos

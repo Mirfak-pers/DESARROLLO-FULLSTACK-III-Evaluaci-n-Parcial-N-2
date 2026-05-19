@@ -280,3 +280,59 @@
 2026-05-18 22:14:23 INFO  [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-05-18 22:14:23 INFO  [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2026-05-18 22:14:23 INFO  [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-18 22:16:15 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:21:15 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:26:15 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:31:15 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:36:15 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:41:15 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:46:15 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:51:15 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:53:36 INFO  [http-nio-8081-exec-5] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 22:53:36 INFO  [http-nio-8081-exec-10] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 22:54:22 INFO  [http-nio-8081-exec-8] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 22:54:22 INFO  [http-nio-8081-exec-1] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 22:54:56 INFO  [http-nio-8081-exec-9] c.s.I.service.ProductoService - Registrando producto con código: 11
+2026-05-18 22:54:56 INFO  [http-nio-8081-exec-9] c.s.I.service.ProductoService - Producto registrado con ID: 1
+2026-05-18 22:55:12 INFO  [http-nio-8081-exec-6] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 22:55:12 INFO  [http-nio-8081-exec-7] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 22:55:43 INFO  [http-nio-8081-exec-3] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 22:55:43 INFO  [http-nio-8081-exec-5] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 22:55:49 INFO  [http-nio-8081-exec-10] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 22:55:49 INFO  [http-nio-8081-exec-8] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 22:56:15 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:56:17 INFO  [http-nio-8081-exec-2] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 22:56:17 INFO  [http-nio-8081-exec-9] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 22:56:54 INFO  [http-nio-8081-exec-6] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 22:56:55 INFO  [http-nio-8081-exec-7] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 23:01:15 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:06:15 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:11:15 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:16:15 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:20:48 INFO  [http-nio-8081-exec-3] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 23:20:48 INFO  [http-nio-8081-exec-5] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 23:21:12 INFO  [http-nio-8081-exec-10] c.s.I.service.ProductoService - Buscando producto ID: 1
+2026-05-18 23:21:12 INFO  [http-nio-8081-exec-8] c.s.I.service.ProductoService - Descontando stock producto ID: 1 cantidad: 5
+2026-05-18 23:21:12 INFO  [http-nio-8081-exec-8] c.s.I.service.ProductoService - Buscando producto ID: 1
+2026-05-18 23:21:15 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:21:22 INFO  [http-nio-8081-exec-1] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 23:21:22 INFO  [http-nio-8081-exec-2] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 23:26:15 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:28:54 INFO  [http-nio-8081-exec-6] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 23:28:54 INFO  [http-nio-8081-exec-7] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 23:29:01 INFO  [http-nio-8081-exec-4] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 23:29:01 INFO  [http-nio-8081-exec-3] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 23:29:02 INFO  [http-nio-8081-exec-5] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 23:29:02 INFO  [http-nio-8081-exec-10] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 23:29:29 INFO  [http-nio-8081-exec-8] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 23:29:29 INFO  [http-nio-8081-exec-1] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 23:30:06 INFO  [http-nio-8081-exec-2] c.s.I.service.ProductoService - Registrando producto con código: 22
+2026-05-18 23:30:06 INFO  [http-nio-8081-exec-2] c.s.I.service.ProductoService - Producto registrado con ID: 2
+2026-05-18 23:30:16 INFO  [http-nio-8081-exec-9] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 23:30:16 INFO  [http-nio-8081-exec-6] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 23:30:36 INFO  [http-nio-8081-exec-7] c.s.I.service.ProductoService - Buscando producto ID: 2
+2026-05-18 23:30:36 INFO  [http-nio-8081-exec-4] c.s.I.service.ProductoService - Descontando stock producto ID: 2 cantidad: 2
+2026-05-18 23:30:36 INFO  [http-nio-8081-exec-4] c.s.I.service.ProductoService - Buscando producto ID: 2
+2026-05-18 23:30:48 INFO  [http-nio-8081-exec-3] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 23:30:48 INFO  [http-nio-8081-exec-5] c.s.I.service.ProductoService - Listando todos los productos
+2026-05-18 23:31:15 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration

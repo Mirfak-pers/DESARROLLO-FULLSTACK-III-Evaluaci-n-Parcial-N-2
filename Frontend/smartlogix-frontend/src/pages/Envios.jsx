@@ -5,20 +5,58 @@ import { crearEnvio, obtenerEnvios } from "../services/enviosService";
 function Envios() {
   const [envios, setEnvios] = useState([]);
   const [busqueda, setBusqueda] = useState("");
+  const [cargando, setCargando] = useState(false);
+
   const [form, setForm] = useState({
     pedidoId: "",
-    direccion: "",
+    usuarioId: "1",
+    direccionDestino: "",
+    ciudadDestino: "",
+    regionDestino: "",
     transportista: "",
-    fechaEstimada: "",
+    fechaEntregaEstimada: "",
   });
+
+  const mostrarErrorBackend = (error, accion = "realizar la operación") => {
+    console.error(`Error al ${accion}`, error);
+
+    const status = error?.response?.status;
+    const mensajeBackend =
+      error?.response?.data?.mensaje ||
+      error?.response?.data?.message ||
+      error?.response?.data?.error;
+
+    if (status === 401) {
+      alert("Sesión no iniciada o expirada. Inicia sesión nuevamente.");
+      return;
+    }
+
+    if (status === 403) {
+      alert("No tienes permisos para realizar esta acción.");
+      return;
+    }
+
+    if (status === 400) {
+      alert(
+        mensajeBackend ||
+          "Datos inválidos. Revisa que los campos estén completos y que los ID sean números enteros positivos."
+      );
+      return;
+    }
+
+    alert("No se pudo completar la operación. Revisa que el backend esté funcionando.");
+  };
 
   const cargarEnvios = async () => {
     try {
+      setCargando(true);
       const data = await obtenerEnvios();
-      setEnvios(data);
+      setEnvios(Array.isArray(data) ? data : []);
     } catch (error) {
-      console.error("Error al cargar envíos", error);
-      console.log("BFF no disponible para cargar envíos");
+      mostrarErrorBackend(error, "cargar envíos");
+      setEnvios([]);
+    } finally {
+      setCargando(false);
     }
   };
 
@@ -27,51 +65,123 @@ function Envios() {
   }, []);
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name === "pedidoId" || name === "usuarioId") {
+      if (value === "") {
+        setForm({
+          ...form,
+          [name]: value,
+        });
+        return;
+      }
+
+      const soloEnterosPositivos = /^[1-9]\d*$/;
+
+      if (!soloEnterosPositivos.test(value)) {
+        return;
+      }
+    }
+
     setForm({
       ...form,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+  };
+
+  const limpiarFormulario = () => {
+    setForm({
+      pedidoId: "",
+      usuarioId: "1",
+      direccionDestino: "",
+      ciudadDestino: "",
+      regionDestino: "",
+      transportista: "",
+      fechaEntregaEstimada: "",
+    });
+  };
+
+  const convertirFechaParaBackend = (fecha) => {
+    if (!fecha) {
+      return null;
+    }
+
+    return `${fecha}T00:00:00`;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!form.pedidoId || !form.direccion || !form.transportista) {
-      alert("Completa los campos obligatorios");
+    const pedidoId = Number(form.pedidoId);
+    const usuarioId = Number(form.usuarioId);
+    const direccionDestino = form.direccionDestino.trim();
+    const ciudadDestino = form.ciudadDestino.trim();
+    const regionDestino = form.regionDestino.trim();
+    const transportista = form.transportista.trim();
+
+    if (
+      !form.pedidoId ||
+      !form.usuarioId ||
+      !direccionDestino ||
+      !ciudadDestino ||
+      !regionDestino
+    ) {
+      alert("Completa los campos obligatorios: pedido, usuario, dirección, ciudad y región.");
       return;
     }
 
-    if (Number(form.pedidoId) <= 0) {
-      alert("El ID del pedido debe ser mayor a 0");
+    if (!Number.isInteger(pedidoId) || pedidoId <= 0) {
+      alert("El ID del pedido debe ser un número entero mayor a 0.");
       return;
     }
+
+    if (!Number.isInteger(usuarioId) || usuarioId <= 0) {
+      alert("El ID del usuario debe ser un número entero mayor a 0.");
+      return;
+    }
+
+    const nuevoEnvio = {
+      pedidoId,
+      usuarioId,
+      direccionDestino,
+      ciudadDestino,
+      regionDestino,
+      transportista,
+      fechaEntregaEstimada: convertirFechaParaBackend(
+        form.fechaEntregaEstimada
+      ),
+    };
 
     try {
-      await crearEnvio({
-        pedidoId: Number(form.pedidoId),
-        direccion: form.direccion,
-        transportista: form.transportista,
-        fechaEstimada: form.fechaEstimada,
-      });
-
-      setForm({
-        pedidoId: "",
-        direccion: "",
-        transportista: "",
-        fechaEstimada: "",
-      });
-
-      cargarEnvios();
+      setCargando(true);
+      await crearEnvio(nuevoEnvio);
+      limpiarFormulario();
+      await cargarEnvios();
+      alert("Envío creado correctamente.");
     } catch (error) {
-      console.error("Error al crear envío", error);
-      alert("No se pudo crear el envío. Verifica que el pedido esté aprobado.");
+      mostrarErrorBackend(error, "crear envío");
+    } finally {
+      setCargando(false);
     }
   };
 
   const enviosFiltrados = envios.filter((envio) => {
-    const texto = `${envio.id} ${envio.pedidoId} ${envio.direccion} ${envio.transportista} ${envio.estado}`.toLowerCase();
+    const texto = `${envio.id || ""} ${envio.pedidoId || ""} ${
+      envio.usuarioId || ""
+    } ${envio.direccionDestino || ""} ${envio.ciudadDestino || ""} ${
+      envio.regionDestino || ""
+    } ${envio.transportista || ""} ${envio.estado || ""}`.toLowerCase();
+
     return texto.includes(busqueda.toLowerCase());
   });
+
+  const formatearFecha = (fecha) => {
+    if (!fecha) {
+      return "Sin fecha";
+    }
+
+    return String(fecha).replace("T", " ").slice(0, 16);
+  };
 
   return (
     <section className="page-panel">
@@ -87,12 +197,21 @@ function Envios() {
         </div>
 
         <div className="header-actions">
-          <button className="btn-secondary" onClick={cargarEnvios}>
+          <button
+            className="btn-secondary"
+            onClick={cargarEnvios}
+            disabled={cargando}
+          >
             <RefreshCcw size={17} />
-            Actualizar
+            {cargando ? "Cargando..." : "Actualizar"}
           </button>
 
-          <button className="btn-primary" type="submit" form="envioForm">
+          <button
+            className="btn-primary"
+            type="submit"
+            form="envioForm"
+            disabled={cargando}
+          >
             <Plus size={17} />
             Nuevo envío
           </button>
@@ -124,27 +243,62 @@ function Envios() {
         <div className="search-box">
           <Search size={18} />
           <input
-            placeholder="Buscar por pedido, dirección, transportista o estado"
+            placeholder="Buscar por pedido, usuario, dirección, ciudad, región, transportista o estado"
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
           />
         </div>
       </div>
 
-      <form id="envioForm" className="formulario panel-form envios-form" onSubmit={handleSubmit}>
+      <form
+        id="envioForm"
+        className="formulario panel-form envios-form"
+        onSubmit={handleSubmit}
+      >
         <input
           name="pedidoId"
           type="number"
+          min="1"
+          step="1"
           placeholder="ID Pedido"
           value={form.pedidoId}
           onChange={handleChange}
+          disabled={cargando}
         />
 
         <input
-          name="direccion"
-          placeholder="Dirección"
-          value={form.direccion}
+          name="usuarioId"
+          type="number"
+          min="1"
+          step="1"
+          placeholder="ID Usuario"
+          value={form.usuarioId}
           onChange={handleChange}
+          disabled={cargando}
+        />
+
+        <input
+          name="direccionDestino"
+          placeholder="Dirección destino"
+          value={form.direccionDestino}
+          onChange={handleChange}
+          disabled={cargando}
+        />
+
+        <input
+          name="ciudadDestino"
+          placeholder="Ciudad destino"
+          value={form.ciudadDestino}
+          onChange={handleChange}
+          disabled={cargando}
+        />
+
+        <input
+          name="regionDestino"
+          placeholder="Región destino"
+          value={form.regionDestino}
+          onChange={handleChange}
+          disabled={cargando}
         />
 
         <input
@@ -152,13 +306,15 @@ function Envios() {
           placeholder="Transportista"
           value={form.transportista}
           onChange={handleChange}
+          disabled={cargando}
         />
 
         <input
-          name="fechaEstimada"
+          name="fechaEntregaEstimada"
           type="date"
-          value={form.fechaEstimada}
+          value={form.fechaEntregaEstimada}
           onChange={handleChange}
+          disabled={cargando}
         />
       </form>
 
@@ -173,7 +329,10 @@ function Envios() {
             <tr>
               <th>ID</th>
               <th>Pedido</th>
+              <th>Usuario</th>
               <th>Dirección</th>
+              <th>Ciudad</th>
+              <th>Región</th>
               <th>Transportista</th>
               <th>Fecha estimada</th>
               <th>Estado</th>
@@ -183,8 +342,8 @@ function Envios() {
           <tbody>
             {enviosFiltrados.length === 0 ? (
               <tr>
-                <td colSpan="6" className="empty-row">
-                  No hay envíos registrados
+                <td colSpan="9" className="empty-row">
+                  {cargando ? "Cargando envíos..." : "No hay envíos registrados"}
                 </td>
               </tr>
             ) : (
@@ -194,15 +353,19 @@ function Envios() {
                     <strong>#{envio.id}</strong>
                   </td>
                   <td>{envio.pedidoId}</td>
-                  <td>{envio.direccion}</td>
-                  <td>{envio.transportista}</td>
-                  <td>{envio.fechaEstimada || "Sin fecha"}</td>
+                  <td>{envio.usuarioId}</td>
+                  <td>{envio.direccionDestino}</td>
+                  <td>{envio.ciudadDestino}</td>
+                  <td>{envio.regionDestino}</td>
+                  <td>{envio.transportista || "Sin transportista"}</td>
+                  <td>{formatearFecha(envio.fechaEntregaEstimada)}</td>
                   <td>
                     <span
                       className={
                         envio.estado === "ENTREGADO"
                           ? "badge badge-success"
-                          : envio.estado === "INCIDENCIA"
+                          : envio.estado === "INCIDENCIA" ||
+                            envio.estado === "CANCELADO"
                           ? "badge badge-danger"
                           : "badge badge-warning"
                       }
