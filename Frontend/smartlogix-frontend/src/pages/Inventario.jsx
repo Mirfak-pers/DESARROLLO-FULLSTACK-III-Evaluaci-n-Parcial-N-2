@@ -60,29 +60,45 @@ function Inventario() {
     cargarProductos();
   }, []);
 
+  // Bloquea - + e , desde el teclado en inputs numéricos (precio acepta punto decimal)
+  const blockNegativeKeys = (e) => {
+    if (e.key === "-" || e.key === "+" || e.key === "e" || e.key === ",") {
+      e.preventDefault();
+    }
+  };
+
+  // Para stock: además bloquea el punto decimal
+  const blockNegativeKeysInt = (e) => {
+    if (e.key === "-" || e.key === "+" || e.key === "e" || e.key === "." || e.key === ",") {
+      e.preventDefault();
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
+    // Bloquear valores no enteros y negativos en precio
     if (name === "precio") {
-      if (value !== "" && Number(value) < 0) {
+      if (value === "") {
+        setForm({ ...form, [name]: value });
         return;
       }
+      if (!/^[1-9]\d*$/.test(value)) return;
     }
 
+    // Bloquear valores negativos en stock: solo enteros >= 0
     if (name === "stock") {
-      if (value !== "" && Number(value) < 0) {
+      if (value === "") {
+        setForm({ ...form, [name]: value });
         return;
       }
-
-      if (value !== "" && !Number.isInteger(Number(value))) {
-        return;
-      }
+      // Rechazar si contiene punto decimal, signo negativo o no es entero positivo/cero
+      if (!/^\d+$/.test(value)) return;
+      const num = parseInt(value, 10);
+      if (isNaN(num) || num < 0) return;
     }
 
-    setForm({
-      ...form,
-      [name]: value,
-    });
+    setForm({ ...form, [name]: value });
   };
 
   const limpiarFormulario = () => {
@@ -126,8 +142,7 @@ function Inventario() {
 
     const codigoExiste = productos.some(
       (producto) =>
-        String(producto.codigo).trim().toLowerCase() ===
-        codigo.toLowerCase()
+        String(producto.codigo).trim().toLowerCase() === codigo.toLowerCase()
     );
 
     if (codigoExiste) {
@@ -135,17 +150,10 @@ function Inventario() {
       return;
     }
 
-    const nuevoProducto = {
-      codigo,
-      nombre,
-      descripcion,
-      precio,
-      stock,
-    };
+    const nuevoProducto = { codigo, nombre, descripcion, precio, stock };
 
     try {
       setCargando(true);
-
       const productoCreado = await crearProducto(nuevoProducto);
 
       if (!productoCreado) {
@@ -168,7 +176,6 @@ function Inventario() {
     const texto = `${producto.codigo || ""} ${producto.nombre || ""} ${
       producto.descripcion || ""
     }`.toLowerCase();
-
     return texto.includes(busqueda.toLowerCase());
   });
 
@@ -250,7 +257,7 @@ function Inventario() {
         <div className="form-card-header">
           <div>
             <h3>Agregar nuevo producto</h3>
-            <p>Completa los datos y presiona “Nuevo producto”.</p>
+            <p>Completa los datos y presiona "Nuevo producto".</p>
           </div>
         </div>
 
@@ -286,11 +293,12 @@ function Inventario() {
           <input
             name="precio"
             type="number"
-            min="0.01"
-            step="0.01"
+            min="1"
+            step="1"
             placeholder="Precio"
             value={form.precio}
             onChange={handleChange}
+            onKeyDown={blockNegativeKeysInt}
             disabled={cargando}
           />
 
@@ -302,6 +310,7 @@ function Inventario() {
             placeholder="Stock"
             value={form.stock}
             onChange={handleChange}
+            onKeyDown={blockNegativeKeysInt}
             disabled={cargando}
           />
         </form>

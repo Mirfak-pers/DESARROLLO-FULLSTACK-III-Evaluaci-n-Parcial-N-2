@@ -1,240 +1,140 @@
 import { useEffect, useState } from "react";
-import { Plus, RefreshCcw, Search, Truck } from "lucide-react";
-import { crearEnvio, obtenerEnvios } from "../services/enviosService";
+import { ClipboardList, Plus, RefreshCcw, Search } from "lucide-react";
+import {
+  aprobarPedido,
+  crearPedido,
+  obtenerPedidos,
+} from "../services/pedidosService";
 
-function Envios() {
-  const [envios, setEnvios] = useState([]);
+function Pedidos() {
+  const [pedidos, setPedidos] = useState([]);
   const [busqueda, setBusqueda] = useState("");
-  const [cargando, setCargando] = useState(false);
-
   const [form, setForm] = useState({
-    pedidoId: "",
-    usuarioId: "1",
-    direccionDestino: "",
-    ciudadDestino: "",
-    regionDestino: "",
-    transportista: "",
-    fechaEntregaEstimada: "",
+    cliente: "",
+    productoId: "",
+    cantidad: "",
   });
 
-  const mostrarErrorBackend = (error, accion = "realizar la operación") => {
-    console.error(`Error al ${accion}`, error);
-
-    const status = error?.response?.status;
-    const mensajeBackend =
-      error?.response?.data?.mensaje ||
-      error?.response?.data?.message ||
-      error?.response?.data?.error;
-
-    if (status === 401) {
-      alert("Sesión no iniciada o expirada. Inicia sesión nuevamente.");
-      return;
-    }
-
-    if (status === 403) {
-      alert("No tienes permisos para realizar esta acción.");
-      return;
-    }
-
-    if (status === 400) {
-      alert(
-        mensajeBackend ||
-          "Datos inválidos. Revisa que los campos estén completos y que los ID sean números enteros positivos."
-      );
-      return;
-    }
-
-    alert("No se pudo completar la operación. Revisa que el backend esté funcionando.");
-  };
-
-  const cargarEnvios = async () => {
+  const cargarPedidos = async () => {
     try {
-      setCargando(true);
-      const data = await obtenerEnvios();
-      setEnvios(Array.isArray(data) ? data : []);
+      const data = await obtenerPedidos();
+      setPedidos(data);
     } catch (error) {
-      mostrarErrorBackend(error, "cargar envíos");
-      setEnvios([]);
-    } finally {
-      setCargando(false);
+      console.error("Error al cargar pedidos", error);
+      console.log("BFF no disponible para cargar pedidos");
     }
   };
 
   useEffect(() => {
-    cargarEnvios();
+    cargarPedidos();
   }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === "pedidoId" || name === "usuarioId") {
+    // Bloquear negativos y decimales en productoId y cantidad
+    if (name === "productoId" || name === "cantidad") {
       if (value === "") {
-        setForm({
-          ...form,
-          [name]: value,
-        });
+        setForm({ ...form, [name]: value });
         return;
       }
-
-      const soloEnterosPositivos = /^[1-9]\d*$/;
-
-      if (!soloEnterosPositivos.test(value)) {
-        return;
-      }
+      // Solo enteros positivos (sin signo negativo, sin punto decimal)
+      if (!/^[1-9]\d*$/.test(value)) return;
     }
 
-    setForm({
-      ...form,
-      [name]: value,
-    });
-  };
-
-  const limpiarFormulario = () => {
-    setForm({
-      pedidoId: "",
-      usuarioId: "1",
-      direccionDestino: "",
-      ciudadDestino: "",
-      regionDestino: "",
-      transportista: "",
-      fechaEntregaEstimada: "",
-    });
-  };
-
-  const convertirFechaParaBackend = (fecha) => {
-    if (!fecha) {
-      return null;
-    }
-
-    return `${fecha}T00:00:00`;
+    setForm({ ...form, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const pedidoId = Number(form.pedidoId);
-    const usuarioId = Number(form.usuarioId);
-    const direccionDestino = form.direccionDestino.trim();
-    const ciudadDestino = form.ciudadDestino.trim();
-    const regionDestino = form.regionDestino.trim();
-    const transportista = form.transportista.trim();
-
-    if (
-      !form.pedidoId ||
-      !form.usuarioId ||
-      !direccionDestino ||
-      !ciudadDestino ||
-      !regionDestino
-    ) {
-      alert("Completa los campos obligatorios: pedido, usuario, dirección, ciudad y región.");
+    if (!form.cliente || !form.productoId || !form.cantidad) {
+      alert("Completa todos los campos");
       return;
     }
 
-    if (!Number.isInteger(pedidoId) || pedidoId <= 0) {
-      alert("El ID del pedido debe ser un número entero mayor a 0.");
+    if (Number(form.productoId) <= 0 || Number(form.cantidad) <= 0) {
+      alert("El ID del producto y la cantidad deben ser mayores a 0");
       return;
     }
-
-    if (!Number.isInteger(usuarioId) || usuarioId <= 0) {
-      alert("El ID del usuario debe ser un número entero mayor a 0.");
-      return;
-    }
-
-    const nuevoEnvio = {
-      pedidoId,
-      usuarioId,
-      direccionDestino,
-      ciudadDestino,
-      regionDestino,
-      transportista,
-      fechaEntregaEstimada: convertirFechaParaBackend(
-        form.fechaEntregaEstimada
-      ),
-    };
 
     try {
-      setCargando(true);
-      await crearEnvio(nuevoEnvio);
-      limpiarFormulario();
-      await cargarEnvios();
-      alert("Envío creado correctamente.");
+      await crearPedido({
+        cliente: form.cliente,
+        items: [
+          {
+            productoId: Number(form.productoId),
+            cantidad: Number(form.cantidad),
+          },
+        ],
+      });
+
+      setForm({ cliente: "", productoId: "", cantidad: "" });
+      cargarPedidos();
     } catch (error) {
-      mostrarErrorBackend(error, "crear envío");
-    } finally {
-      setCargando(false);
+      console.error("Error al crear pedido", error);
+      alert("No se pudo crear el pedido");
     }
   };
 
-  const enviosFiltrados = envios.filter((envio) => {
-    const texto = `${envio.id || ""} ${envio.pedidoId || ""} ${
-      envio.usuarioId || ""
-    } ${envio.direccionDestino || ""} ${envio.ciudadDestino || ""} ${
-      envio.regionDestino || ""
-    } ${envio.transportista || ""} ${envio.estado || ""}`.toLowerCase();
+  const handleAprobar = async (id) => {
+    try {
+      await aprobarPedido(id);
+      cargarPedidos();
+    } catch (error) {
+      console.error("Error al aprobar pedido", error);
+      alert("No se pudo aprobar el pedido. Puede que no exista stock suficiente.");
+    }
+  };
 
+  const pedidosFiltrados = pedidos.filter((pedido) => {
+    const texto = `${pedido.id} ${pedido.cliente} ${pedido.estado}`.toLowerCase();
     return texto.includes(busqueda.toLowerCase());
   });
-
-  const formatearFecha = (fecha) => {
-    if (!fecha) {
-      return "Sin fecha";
-    }
-
-    return String(fecha).replace("T", " ").slice(0, 16);
-  };
 
   return (
     <section className="page-panel">
       <div className="page-header">
         <div className="page-title">
           <div className="title-icon">
-            <Truck size={26} />
+            <ClipboardList size={26} />
           </div>
           <div>
-            <h1>Envíos</h1>
-            <p>Coordinación de despachos, transportistas y entregas.</p>
+            <h1>Pedidos</h1>
+            <p>Creación, validación y seguimiento de pedidos.</p>
           </div>
         </div>
 
         <div className="header-actions">
-          <button
-            className="btn-secondary"
-            onClick={cargarEnvios}
-            disabled={cargando}
-          >
+          <button className="btn-secondary" onClick={cargarPedidos}>
             <RefreshCcw size={17} />
-            {cargando ? "Cargando..." : "Actualizar"}
+            Actualizar
           </button>
 
-          <button
-            className="btn-primary"
-            type="submit"
-            form="envioForm"
-            disabled={cargando}
-          >
+          <button className="btn-primary" type="submit" form="pedidoForm">
             <Plus size={17} />
-            Nuevo envío
+            Nuevo pedido
           </button>
         </div>
       </div>
 
       <div className="stats-row">
         <div className="stat-card">
-          <span>Total envíos</span>
-          <strong>{envios.length}</strong>
+          <span>Total pedidos</span>
+          <strong>{pedidos.length}</strong>
         </div>
 
         <div className="stat-card">
-          <span>En tránsito</span>
+          <span>Pendientes</span>
           <strong>
-            {envios.filter((envio) => envio.estado === "EN_TRANSITO").length}
+            {pedidos.filter((pedido) => pedido.estado !== "APROBADO").length}
           </strong>
         </div>
 
         <div className="stat-card">
-          <span>Entregados</span>
+          <span>Aprobados</span>
           <strong>
-            {envios.filter((envio) => envio.estado === "ENTREGADO").length}
+            {pedidos.filter((pedido) => pedido.estado === "APROBADO").length}
           </strong>
         </div>
       </div>
@@ -243,7 +143,7 @@ function Envios() {
         <div className="search-box">
           <Search size={18} />
           <input
-            placeholder="Buscar por pedido, usuario, dirección, ciudad, región, transportista o estado"
+            placeholder="Buscar por cliente, ID o estado"
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
           />
@@ -251,127 +151,93 @@ function Envios() {
       </div>
 
       <form
-        id="envioForm"
-        className="formulario panel-form envios-form"
+        id="pedidoForm"
+        className="formulario panel-form pedidos-form"
         onSubmit={handleSubmit}
       >
         <input
-          name="pedidoId"
+          name="cliente"
+          placeholder="Cliente"
+          value={form.cliente}
+          onChange={handleChange}
+        />
+
+        <input
+          name="productoId"
           type="number"
           min="1"
           step="1"
-          placeholder="ID Pedido"
-          value={form.pedidoId}
+          placeholder="ID Producto"
+          value={form.productoId}
           onChange={handleChange}
-          disabled={cargando}
         />
 
         <input
-          name="usuarioId"
+          name="cantidad"
           type="number"
           min="1"
           step="1"
-          placeholder="ID Usuario"
-          value={form.usuarioId}
+          placeholder="Cantidad"
+          value={form.cantidad}
           onChange={handleChange}
-          disabled={cargando}
-        />
-
-        <input
-          name="direccionDestino"
-          placeholder="Dirección destino"
-          value={form.direccionDestino}
-          onChange={handleChange}
-          disabled={cargando}
-        />
-
-        <input
-          name="ciudadDestino"
-          placeholder="Ciudad destino"
-          value={form.ciudadDestino}
-          onChange={handleChange}
-          disabled={cargando}
-        />
-
-        <input
-          name="regionDestino"
-          placeholder="Región destino"
-          value={form.regionDestino}
-          onChange={handleChange}
-          disabled={cargando}
-        />
-
-        <input
-          name="transportista"
-          placeholder="Transportista"
-          value={form.transportista}
-          onChange={handleChange}
-          disabled={cargando}
-        />
-
-        <input
-          name="fechaEntregaEstimada"
-          type="date"
-          value={form.fechaEntregaEstimada}
-          onChange={handleChange}
-          disabled={cargando}
         />
       </form>
 
       <div className="table-card">
         <div className="table-header">
-          <h3>Listado de envíos</h3>
-          <span>{enviosFiltrados.length} resultados</span>
+          <h3>Listado de pedidos</h3>
+          <span>{pedidosFiltrados.length} resultados</span>
         </div>
 
         <table>
           <thead>
             <tr>
               <th>ID</th>
-              <th>Pedido</th>
-              <th>Usuario</th>
-              <th>Dirección</th>
-              <th>Ciudad</th>
-              <th>Región</th>
-              <th>Transportista</th>
-              <th>Fecha estimada</th>
+              <th>Cliente</th>
               <th>Estado</th>
+              <th>Acción</th>
             </tr>
           </thead>
 
           <tbody>
-            {enviosFiltrados.length === 0 ? (
+            {pedidosFiltrados.length === 0 ? (
               <tr>
-                <td colSpan="9" className="empty-row">
-                  {cargando ? "Cargando envíos..." : "No hay envíos registrados"}
+                <td colSpan="4" className="empty-row">
+                  No hay pedidos registrados
                 </td>
               </tr>
             ) : (
-              enviosFiltrados.map((envio) => (
-                <tr key={envio.id}>
+              pedidosFiltrados.map((pedido) => (
+                <tr key={pedido.id}>
                   <td>
-                    <strong>#{envio.id}</strong>
+                    <strong>#{pedido.id}</strong>
                   </td>
-                  <td>{envio.pedidoId}</td>
-                  <td>{envio.usuarioId}</td>
-                  <td>{envio.direccionDestino}</td>
-                  <td>{envio.ciudadDestino}</td>
-                  <td>{envio.regionDestino}</td>
-                  <td>{envio.transportista || "Sin transportista"}</td>
-                  <td>{formatearFecha(envio.fechaEntregaEstimada)}</td>
+                  <td>{pedido.cliente}</td>
                   <td>
                     <span
                       className={
-                        envio.estado === "ENTREGADO"
+                        pedido.estado === "APROBADO"
                           ? "badge badge-success"
-                          : envio.estado === "INCIDENCIA" ||
-                            envio.estado === "CANCELADO"
+                          : pedido.estado === "RECHAZADO"
                           ? "badge badge-danger"
                           : "badge badge-warning"
                       }
                     >
-                      {envio.estado || "PENDIENTE"}
+                      {pedido.estado}
                     </span>
+                  </td>
+                  <td>
+                    <button
+                      className="btn-small"
+                      onClick={() => handleAprobar(pedido.id)}
+                      disabled={pedido.estado === "APROBADO"}
+                      style={{
+                        opacity: pedido.estado === "APROBADO" ? 0.4 : 1,
+                        cursor: pedido.estado === "APROBADO" ? "not-allowed" : "pointer",
+                      }}
+                    >
+                      Aprobar
+                    </button>
                   </td>
                 </tr>
               ))
@@ -383,4 +249,4 @@ function Envios() {
   );
 }
 
-export default Envios;
+export default Pedidos;

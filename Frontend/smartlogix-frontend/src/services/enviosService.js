@@ -11,6 +11,7 @@ export const crearEnvio = async (envio) => {
 };
 
 export const actualizarEstadoEnvio = async (id, estado) => {
-  const response = await apiClient.patch(`/envios/${id}/estado`, { estado });
+  // El backend espera { nuevoEstado: "ENTREGADO" } en CambiarEstadoRequest
+  const response = await apiClient.patch(`/envios/${id}/estado`, { nuevoEstado: estado });
   return response.data;
 };
