@@ -6,11 +6,16 @@ import Pedidos from "./pages/Pedidos";
 import Envios from "./pages/Envios";
 import NotFound from "./pages/NotFound";
 
-function App() {
+function App({ keycloak, authenticated }) {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route
+          path="/"
+          element={
+            <Layout keycloak={keycloak} authenticated={authenticated} />
+          }
+        >
           <Route index element={<Dashboard />} />
           <Route path="inventario" element={<Inventario />} />
           <Route path="pedidos" element={<Pedidos />} />
