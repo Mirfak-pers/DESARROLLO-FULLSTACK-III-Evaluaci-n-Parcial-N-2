@@ -11,6 +11,6 @@ export const crearEnvio = async (envio) => {
 };
 
 export const actualizarEstadoEnvio = async (id, estado) => {
-  const response = await apiClient.put(`/envios/${id}/estado`, { estado });
+  const response = await apiClient.patch(`/envios/${id}/estado`, { estado });
   return response.data;
 };
