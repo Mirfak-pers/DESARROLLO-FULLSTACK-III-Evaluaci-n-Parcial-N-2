@@ -5,6 +5,8 @@ import { crearProducto, obtenerProductos } from "../services/inventarioService";
 function Inventario() {
   const [productos, setProductos] = useState([]);
   const [busqueda, setBusqueda] = useState("");
+  const [cargando, setCargando] = useState(false);
+
   const [form, setForm] = useState({
     codigo: "",
     nombre: "",
@@ -13,13 +15,44 @@ function Inventario() {
     stock: "",
   });
 
+  const mostrarErrorBackend = (error, accion = "realizar la operación") => {
+    console.error(`Error al ${accion}`, error);
+
+    const status = error?.response?.status;
+
+    if (status === 401) {
+      alert("Sesión no iniciada o expirada. Inicia sesión nuevamente.");
+      return;
+    }
+
+    if (status === 403) {
+      alert("No tienes permisos para realizar esta acción.");
+      return;
+    }
+
+    if (status === 400) {
+      alert("Datos inválidos. Revisa que el precio sea mayor a 0 y el stock no sea negativo.");
+      return;
+    }
+
+    if (status === 409) {
+      alert("Código ya usado, ingrese otro.");
+      return;
+    }
+
+    alert("No se pudo completar la operación. Revisa que el backend esté funcionando.");
+  };
+
   const cargarProductos = async () => {
     try {
+      setCargando(true);
       const data = await obtenerProductos();
-      setProductos(data);
+      setProductos(Array.isArray(data) ? data : []);
     } catch (error) {
-      console.error("Error al cargar productos", error);
-      console.log("BFF no disponible para cargar productos");
+      mostrarErrorBackend(error, "cargar productos");
+      setProductos([]);
+    } finally {
+      setCargando(false);
     }
   };
 
@@ -28,9 +61,27 @@ function Inventario() {
   }, []);
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name === "precio") {
+      if (value !== "" && Number(value) < 0) {
+        return;
+      }
+    }
+
+    if (name === "stock") {
+      if (value !== "" && Number(value) < 0) {
+        return;
+      }
+
+      if (value !== "" && !Number.isInteger(Number(value))) {
+        return;
+      }
+    }
+
     setForm({
       ...form,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
   };
 
@@ -47,60 +98,69 @@ function Inventario() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!form.codigo || !form.nombre || !form.precio || !form.stock) {
-      alert("Completa los campos obligatorios");
+    const codigo = form.codigo.trim();
+    const nombre = form.nombre.trim();
+    const descripcion = form.descripcion.trim();
+    const precio = Number(form.precio);
+    const stock = Number(form.stock);
+
+    if (!codigo || !nombre || form.precio === "" || form.stock === "") {
+      alert("Completa los campos obligatorios: código, nombre, precio y stock.");
       return;
     }
 
-    if (Number(form.precio) <= 0 || Number(form.stock) < 0) {
-      alert("El precio debe ser mayor a 0 y el stock no puede ser negativo");
+    if (precio <= 0) {
+      alert("El precio debe ser mayor a 0.");
+      return;
+    }
+
+    if (stock < 0) {
+      alert("El stock no puede ser negativo.");
+      return;
+    }
+
+    if (!Number.isInteger(stock)) {
+      alert("El stock debe ser un número entero.");
       return;
     }
 
     const codigoExiste = productos.some(
       (producto) =>
         String(producto.codigo).trim().toLowerCase() ===
-        String(form.codigo).trim().toLowerCase()
+        codigo.toLowerCase()
     );
 
     if (codigoExiste) {
-      alert("Código ya usado, ingrese otro");
+      alert("Código ya usado, ingrese otro.");
       return;
     }
 
     const nuevoProducto = {
-      codigo: form.codigo.trim(),
-      nombre: form.nombre.trim(),
-      descripcion: form.descripcion.trim(),
-      precio: Number(form.precio),
-      stock: Number(form.stock),
+      codigo,
+      nombre,
+      descripcion,
+      precio,
+      stock,
     };
 
     try {
+      setCargando(true);
+
       const productoCreado = await crearProducto(nuevoProducto);
 
-      setProductos((prevProductos) => [
-        ...prevProductos,
-        productoCreado || {
-          id: Date.now(),
-          ...nuevoProducto,
-        },
-      ]);
+      if (!productoCreado) {
+        alert("El backend no devolvió el producto creado. Actualiza la lista para verificar.");
+        await cargarProductos();
+        return;
+      }
 
+      setProductos((prevProductos) => [...prevProductos, productoCreado]);
       limpiarFormulario();
+      alert("Producto guardado correctamente.");
     } catch (error) {
-      console.error(
-        "Error al crear producto en BFF, se agrega solo en pantalla",
-        error
-      );
-
-      const productoDemo = {
-        id: Date.now(),
-        ...nuevoProducto,
-      };
-
-      setProductos((prevProductos) => [...prevProductos, productoDemo]);
-      limpiarFormulario();
+      mostrarErrorBackend(error, "crear producto");
+    } finally {
+      setCargando(false);
     }
   };
 
@@ -133,12 +193,21 @@ function Inventario() {
         </div>
 
         <div className="header-actions">
-          <button className="btn-secondary" onClick={cargarProductos}>
+          <button
+            className="btn-secondary"
+            onClick={cargarProductos}
+            disabled={cargando}
+          >
             <RefreshCcw size={17} />
-            Actualizar
+            {cargando ? "Cargando..." : "Actualizar"}
           </button>
 
-          <button className="btn-primary" type="submit" form="productoForm">
+          <button
+            className="btn-primary"
+            type="submit"
+            form="productoForm"
+            disabled={cargando}
+          >
             <Plus size={17} />
             Nuevo producto
           </button>
@@ -158,7 +227,7 @@ function Inventario() {
 
         <div className="stat-card">
           <span>Estado</span>
-          <strong>Activo</strong>
+          <strong>{cargando ? "Cargando" : "Activo"}</strong>
         </div>
       </div>
 
@@ -195,6 +264,7 @@ function Inventario() {
             placeholder="Código"
             value={form.codigo}
             onChange={handleChange}
+            disabled={cargando}
           />
 
           <input
@@ -202,6 +272,7 @@ function Inventario() {
             placeholder="Nombre"
             value={form.nombre}
             onChange={handleChange}
+            disabled={cargando}
           />
 
           <input
@@ -209,22 +280,29 @@ function Inventario() {
             placeholder="Descripción"
             value={form.descripcion}
             onChange={handleChange}
+            disabled={cargando}
           />
 
           <input
             name="precio"
             type="number"
+            min="0.01"
+            step="0.01"
             placeholder="Precio"
             value={form.precio}
             onChange={handleChange}
+            disabled={cargando}
           />
 
           <input
             name="stock"
             type="number"
+            min="0"
+            step="1"
             placeholder="Stock"
             value={form.stock}
             onChange={handleChange}
+            disabled={cargando}
           />
         </form>
       </div>
@@ -252,12 +330,12 @@ function Inventario() {
             {productosFiltrados.length === 0 ? (
               <tr>
                 <td colSpan="7" className="empty-row">
-                  No hay productos registrados
+                  {cargando ? "Cargando productos..." : "No hay productos registrados"}
                 </td>
               </tr>
             ) : (
               productosFiltrados.map((producto) => (
-                <tr key={producto.id}>
+                <tr key={producto.id || producto.codigo}>
                   <td>{producto.id}</td>
                   <td>
                     <strong>{producto.codigo}</strong>

@@ -12,9 +12,7 @@ function App({ keycloak, authenticated }) {
       <Routes>
         <Route
           path="/"
-          element={
-            <Layout keycloak={keycloak} authenticated={authenticated} />
-          }
+          element={<Layout keycloak={keycloak} authenticated={authenticated} />}
         >
           <Route index element={<Dashboard />} />
           <Route path="inventario" element={<Inventario />} />
