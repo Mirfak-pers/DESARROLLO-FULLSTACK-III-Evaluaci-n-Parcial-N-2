@@ -11,30 +11,32 @@ export const obtenerPedidoPorId = async (id) => {
 };
 
 export const crearPedido = async (pedido) => {
+  // El backend espera: { cliente, detalles: [{ productoId, cantidad }] }
+  // El frontend envía:  { cliente, items:   [{ productoId, cantidad }] }
+  const detalles = (pedido.detalles || pedido.items || []).map((item) => ({
+    productoId: Number(item.productoId),
+    cantidad:   Number(item.cantidad),
+  }));
+
   const payload = {
-    cliente: pedido.cliente,
-    detalles: pedido.detalles || pedido.items || [
-      {
-        productoId: Number(pedido.productoId),
-        cantidad: Number(pedido.cantidad),
-      },
-    ],
+    cliente:  pedido.cliente,
+    detalles: detalles,
   };
 
   const response = await apiClient.post("/pedidos", payload);
   return response.data;
 };
 
-export const cambiarEstadoPedido = async (id, estado) => {
+export const cambiarEstadoPedido = async (id, estado, datosEnvio = {}) => {
   const response = await apiClient.patch(`/pedidos/${id}/estado`, {
     estado,
+    ...datosEnvio,
   });
-
   return response.data;
 };
 
-export const aprobarPedido = async (id) => {
-  return cambiarEstadoPedido(id, "APROBADO");
+export const aprobarPedido = async (id, datosEnvio = {}) => {
+  return cambiarEstadoPedido(id, "APROBADO", datosEnvio);
 };
 
 export const rechazarPedido = async (id) => {

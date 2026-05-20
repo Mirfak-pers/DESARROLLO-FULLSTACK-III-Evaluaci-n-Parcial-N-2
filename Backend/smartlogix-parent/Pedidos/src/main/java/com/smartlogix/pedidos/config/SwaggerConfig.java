@@ -1,7 +1,10 @@
 package com.smartlogix.pedidos.config;
 
+import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.security.SecurityRequirement;
+import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,7 +16,15 @@ public class SwaggerConfig {
         return new OpenAPI()
                 .info(new Info()
                         .title("Microservicio de Pedidos - SmartLogix")
-                        .description("API REST para creación, validación y seguimiento de pedidos.")
-                        .version("1.0.0"));
+                        .description("API REST para gestión de pedidos.")
+                        .version("1.0.0"))
+                .addSecurityItem(new SecurityRequirement().addList("bearerAuth"))
+                .components(new Components()
+                        .addSecuritySchemes("bearerAuth",
+                                new SecurityScheme()
+                                        .name("bearerAuth")
+                                        .type(SecurityScheme.Type.HTTP)
+                                        .scheme("bearer")
+                                        .bearerFormat("JWT")));
     }
 }

@@ -369,3 +369,91 @@
 2026-05-18 23:31:20 INFO  [http-nio-8083-exec-4] c.s.msEnvios.service.EnvioService - Listando todos los envíos
 2026-05-18 23:31:20 INFO  [http-nio-8083-exec-5] c.s.msEnvios.service.EnvioService - Listando todos los envíos
 2026-05-18 23:31:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-19 21:57:34 INFO  [restartedMain] c.s.msEnvios.MsEnviosApplication - Starting MsEnviosApplication using Java 25.0.2 with PID 23472 (C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\msEnvios\target\classes started by Gabrielpc in C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\msEnvios)
+2026-05-19 21:57:34 DEBUG [restartedMain] c.s.msEnvios.MsEnviosApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-05-19 21:57:34 INFO  [restartedMain] c.s.msEnvios.MsEnviosApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-19 21:57:34 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-19 21:57:34 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-19 21:57:36 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-19 21:57:37 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 294 ms. Found 1 JPA repository interface.
+2026-05-19 21:57:37 INFO  [restartedMain] o.s.cloud.context.scope.GenericScope - BeanFactory id=3f591b1a-9188-3c20-92c5-ba3ab2780545
+2026-05-19 21:57:39 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-05-19 21:57:39 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-05-19 21:57:42 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8083 (http)
+2026-05-19 21:57:42 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-19 21:57:42 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-05-19 21:57:42 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-19 21:57:42 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7822 ms
+2026-05-19 21:57:43 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-19 21:57:43 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-05-19 21:57:43 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-19 21:57:43 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-19 21:57:43 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-19 21:57:44 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7415109
+2026-05-19 21:57:44 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-19 21:57:44 WARN  [restartedMain] org.hibernate.dialect.Dialect - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-05-19 21:57:44 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-19 21:57:45 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-19 21:57:45 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-19 21:57:46 WARN  [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-19 21:57:48 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoints beneath base path '/actuator'
+2026-05-19 21:57:49 WARN  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2026-05-19 21:57:49 INFO  [restartedMain] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2026-05-19 21:57:49 WARN  [restartedMain] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-05-19 21:57:49 INFO  [restartedMain] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-05-19 21:57:49 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-05-19 21:57:49 INFO  [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-19 21:57:49 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-05-19 21:57:49 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-05-19 21:57:49 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-05-19 21:57:49 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-05-19 21:57:49 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-05-19 21:57:49 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-05-19 21:57:49 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-05-19 21:57:50 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-05-19 21:57:50 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-05-19 21:57:50 INFO  [restartedMain] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-05-19 21:57:50 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1779242270122 with initial instances count: 2
+2026-05-19 21:57:50 INFO  [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry - Registering application MS-ENVIOS with eureka with status UP
+2026-05-19 21:57:50 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1779242270132, current=UP, previous=STARTING]
+2026-05-19 21:57:50 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-ENVIOS/ms-envios:8083: registering service...
+2026-05-19 21:57:50 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8083 (http) with context path '/'
+2026-05-19 21:57:50 INFO  [restartedMain] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8083
+2026-05-19 21:57:50 INFO  [restartedMain] c.s.msEnvios.MsEnviosApplication - Started MsEnviosApplication in 16.696 seconds (process running for 17.449)
+2026-05-19 21:57:50 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-ENVIOS/ms-envios:8083 - registration status: 204
+2026-05-19 21:59:22 INFO  [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-19 21:59:22 INFO  [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-19 21:59:22 INFO  [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-05-19 21:59:23 INFO  [http-nio-8083-exec-1] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 21:59:23 INFO  [http-nio-8083-exec-2] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 21:59:30 INFO  [http-nio-8083-exec-3] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 21:59:30 INFO  [http-nio-8083-exec-4] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 22:02:49 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-19 22:07:49 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-19 22:09:20 INFO  [http-nio-8083-exec-5] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 22:09:20 INFO  [http-nio-8083-exec-6] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 22:09:31 INFO  [http-nio-8083-exec-7] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 22:09:31 INFO  [http-nio-8083-exec-8] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 22:09:51 INFO  [http-nio-8083-exec-9] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 22:09:51 INFO  [http-nio-8083-exec-10] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 22:12:49 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-19 22:15:24 INFO  [http-nio-8083-exec-1] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 22:15:24 INFO  [http-nio-8083-exec-2] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 22:15:44 INFO  [http-nio-8083-exec-3] c.s.msEnvios.service.EnvioService - Creando envío para pedido ID: 9
+2026-05-19 22:15:47 INFO  [http-nio-8083-exec-4] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 22:15:47 INFO  [http-nio-8083-exec-5] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 22:16:05 INFO  [http-nio-8083-exec-6] c.s.msEnvios.service.EnvioService - Creando envío para pedido ID: 10
+2026-05-19 22:16:07 INFO  [http-nio-8083-exec-7] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 22:16:07 INFO  [http-nio-8083-exec-8] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 22:16:16 INFO  [http-nio-8083-exec-9] c.s.msEnvios.service.EnvioService - Cambiando estado del envío ID: 2 a ENTREGADO
+2026-05-19 22:16:16 INFO  [http-nio-8083-exec-10] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 22:16:27 INFO  [http-nio-8083-exec-1] c.s.msEnvios.service.EnvioService - Cambiando estado del envío ID: 3 a EN_TRANSITO
+2026-05-19 22:16:27 INFO  [http-nio-8083-exec-2] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 22:16:33 INFO  [http-nio-8083-exec-3] c.s.msEnvios.service.EnvioService - Cambiando estado del envío ID: 3 a INCIDENCIA
+2026-05-19 22:16:33 INFO  [http-nio-8083-exec-4] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 22:16:37 INFO  [http-nio-8083-exec-5] c.s.msEnvios.service.EnvioService - Cambiando estado del envío ID: 3 a CANCELADO
+2026-05-19 22:16:37 INFO  [http-nio-8083-exec-6] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 22:16:55 INFO  [http-nio-8083-exec-7] c.s.msEnvios.service.EnvioService - Creando envío para pedido ID: 11
+2026-05-19 22:16:57 INFO  [http-nio-8083-exec-8] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 22:16:57 INFO  [http-nio-8083-exec-9] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-19 22:17:49 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
