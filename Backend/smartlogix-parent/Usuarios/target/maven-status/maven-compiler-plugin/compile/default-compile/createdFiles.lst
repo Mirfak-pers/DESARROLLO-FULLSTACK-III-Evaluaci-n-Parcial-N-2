@@ -1,0 +1,11 @@
+com\smartlogix\msUsuarios\controllers\HomeController.class
+com\smartlogix\msUsuarios\controllers\UsuarioController.class
+com\smartlogix\msUsuarios\services\UsuarioService.class
+com\smartlogix\msUsuarios\security\SecurityConfig.class
+com\smartlogix\msUsuarios\dto\LoginDTO.class
+com\smartlogix\msUsuarios\models\Usuario.class
+com\smartlogix\msUsuarios\repositories\UsuarioRepository.class
+com\smartlogix\msUsuarios\dto\UsuarioDTO.class
+com\smartlogix\msUsuarios\UsuariosApplication.class
+com\smartlogix\msUsuarios\config\SwaggerConfig.class
+com\smartlogix\msUsuarios\dto\UsuarioRegistroDTO.class

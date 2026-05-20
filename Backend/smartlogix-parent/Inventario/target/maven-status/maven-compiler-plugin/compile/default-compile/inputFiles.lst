@@ -1,0 +1,17 @@
+C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Inventario\src\main\java\com\smartlogix\Inventario\config\SecurityConfig.java
+C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Inventario\src\main\java\com\smartlogix\Inventario\config\SwaggerConfig.java
+C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Inventario\src\main\java\com\smartlogix\Inventario\controller\HomeController.java
+C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Inventario\src\main\java\com\smartlogix\Inventario\controller\ProductoController.java
+C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Inventario\src\main\java\com\smartlogix\Inventario\dto\ProductoRequest.java
+C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Inventario\src\main\java\com\smartlogix\Inventario\dto\StockRequest.java
+C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Inventario\src\main\java\com\smartlogix\Inventario\exception\GlobalExceptionHandler.java
+C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Inventario\src\main\java\com\smartlogix\Inventario\exception\ProductoDuplicadoException.java
+C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Inventario\src\main\java\com\smartlogix\Inventario\exception\ProductoNoEncontradoException.java
+C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Inventario\src\main\java\com\smartlogix\Inventario\exception\StockInsuficienteException.java
+C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Inventario\src\main\java\com\smartlogix\Inventario\model\MovimientoInventario.java
+C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Inventario\src\main\java\com\smartlogix\Inventario\model\Producto.java
+C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Inventario\src\main\java\com\smartlogix\Inventario\model\TipoMovimiento.java
+C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Inventario\src\main\java\com\smartlogix\Inventario\MsInventarioApplication.java
+C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Inventario\src\main\java\com\smartlogix\Inventario\repository\MovimientoInventarioRepository.java
+C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Inventario\src\main\java\com\smartlogix\Inventario\repository\ProductoRepository.java
+C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\Inventario\src\main\java\com\smartlogix\Inventario\service\ProductoService.java
