@@ -1,0 +1,371 @@
+2026-05-16 01:11:48 INFO  [restartedMain] c.s.msEnvios.MsEnviosApplication - Starting MsEnviosApplication using Java 25.0.2 with PID 13432 (C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\msEnvios\target\classes started by Gabrielpc in C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\msEnvios)
+2026-05-16 01:11:48 DEBUG [restartedMain] c.s.msEnvios.MsEnviosApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-05-16 01:11:48 INFO  [restartedMain] c.s.msEnvios.MsEnviosApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-16 01:11:48 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-16 01:11:48 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-16 01:11:53 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-16 01:11:53 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 284 ms. Found 1 JPA repository interface.
+2026-05-16 01:11:54 INFO  [restartedMain] o.s.cloud.context.scope.GenericScope - BeanFactory id=f3351344-4c8c-3d2f-a6d5-6c41ca1ad578
+2026-05-16 01:11:54 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-05-16 01:11:54 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-05-16 01:11:55 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8085 (http)
+2026-05-16 01:11:55 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-16 01:11:55 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-05-16 01:11:55 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-16 01:11:55 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6991 ms
+2026-05-16 01:11:56 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-16 01:11:56 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-05-16 01:11:56 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-16 01:11:56 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-16 01:11:56 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-16 01:11:57 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5e217a46
+2026-05-16 01:11:57 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-16 01:11:57 WARN  [restartedMain] org.hibernate.dialect.Dialect - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-05-16 01:11:57 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-16 01:11:58 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-16 01:11:58 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-16 01:11:59 WARN  [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-16 01:12:01 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-05-16 01:12:01 INFO  [restartedMain] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2026-05-16 01:12:01 WARN  [restartedMain] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-05-16 01:12:01 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoints beneath base path '/actuator'
+2026-05-16 01:12:01 INFO  [restartedMain] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-05-16 01:12:01 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-05-16 01:12:01 INFO  [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-16 01:12:01 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-05-16 01:12:01 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-05-16 01:12:01 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-05-16 01:12:01 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-05-16 01:12:01 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-05-16 01:12:01 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-05-16 01:12:01 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-05-16 01:12:02 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-05-16 01:12:02 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-05-16 01:12:02 INFO  [restartedMain] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-05-16 01:12:02 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1778908322437 with initial instances count: 0
+2026-05-16 01:12:02 INFO  [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry - Registering application MS-ENVIOS with eureka with status UP
+2026-05-16 01:12:02 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1778908322445, current=UP, previous=STARTING]
+2026-05-16 01:12:02 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-ENVIOS/ms-envios:8085: registering service...
+2026-05-16 01:12:02 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8085 (http) with context path '/'
+2026-05-16 01:12:02 INFO  [restartedMain] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8085
+2026-05-16 01:12:02 INFO  [restartedMain] c.s.msEnvios.MsEnviosApplication - Started MsEnviosApplication in 15.134 seconds (process running for 16.758)
+2026-05-16 01:12:02 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-ENVIOS/ms-envios:8085 - registration status: 204
+2026-05-16 01:12:32 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-05-16 01:12:32 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-05-16 01:12:32 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-05-16 01:12:32 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-05-16 01:12:32 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-05-16 01:12:32 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] c.netflix.discovery.DiscoveryClient - Application version is -1: false
+2026-05-16 01:12:32 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-05-16 01:12:32 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-05-16 01:15:03 INFO  [http-nio-8085-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-16 01:15:03 INFO  [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-16 01:15:03 INFO  [http-nio-8085-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 30 ms
+2026-05-16 01:15:03 WARN  [http-nio-8085-exec-2] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2026-05-16 01:17:01 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-16 01:20:06 WARN  [http-nio-8085-exec-5] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2026-05-16 01:24:36 INFO  [restartedMain] c.s.msEnvios.MsEnviosApplication - Starting MsEnviosApplication using Java 25.0.2 with PID 4064 (C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\msEnvios\target\classes started by Gabrielpc in C:\Users\Gabrielpc\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\msEnvios)
+2026-05-16 01:24:36 DEBUG [restartedMain] c.s.msEnvios.MsEnviosApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-05-16 01:24:36 INFO  [restartedMain] c.s.msEnvios.MsEnviosApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-16 01:24:36 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-16 01:24:36 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-16 01:24:43 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-16 01:24:44 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 323 ms. Found 1 JPA repository interface.
+2026-05-16 01:24:45 INFO  [restartedMain] o.s.cloud.context.scope.GenericScope - BeanFactory id=f3351344-4c8c-3d2f-a6d5-6c41ca1ad578
+2026-05-16 01:24:46 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-05-16 01:24:46 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-05-16 01:24:49 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8085 (http)
+2026-05-16 01:24:49 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-16 01:24:49 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-05-16 01:24:49 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-16 01:24:49 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 13239 ms
+2026-05-16 01:24:50 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-16 01:24:50 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-05-16 01:24:50 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-16 01:24:51 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-16 01:24:52 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-16 01:24:52 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@71ac220c
+2026-05-16 01:24:52 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-16 01:24:52 WARN  [restartedMain] org.hibernate.dialect.Dialect - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-05-16 01:24:52 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-16 01:24:54 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-16 01:24:54 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-16 01:24:59 WARN  [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-16 01:25:02 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-05-16 01:25:03 INFO  [restartedMain] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2026-05-16 01:25:03 WARN  [restartedMain] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-05-16 01:25:03 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoints beneath base path '/actuator'
+2026-05-16 01:25:03 INFO  [restartedMain] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-05-16 01:25:04 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-05-16 01:25:04 INFO  [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-16 01:25:04 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-05-16 01:25:04 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-05-16 01:25:04 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-05-16 01:25:04 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-05-16 01:25:04 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-05-16 01:25:04 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-05-16 01:25:04 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-05-16 01:25:05 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-05-16 01:25:05 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-05-16 01:25:05 INFO  [restartedMain] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-05-16 01:25:05 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1778909105288 with initial instances count: 0
+2026-05-16 01:25:05 INFO  [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry - Registering application MS-ENVIOS with eureka with status UP
+2026-05-16 01:25:05 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1778909105296, current=UP, previous=STARTING]
+2026-05-16 01:25:05 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-ENVIOS/ms-envios:8085: registering service...
+2026-05-16 01:25:05 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8085 (http) with context path '/'
+2026-05-16 01:25:05 INFO  [restartedMain] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8085
+2026-05-16 01:25:05 INFO  [restartedMain] c.s.msEnvios.MsEnviosApplication - Started MsEnviosApplication in 30.892 seconds (process running for 33.594)
+2026-05-16 01:25:05 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-ENVIOS/ms-envios:8085 - registration status: 204
+2026-05-18 20:56:09 INFO  [restartedMain] c.s.msEnvios.MsEnviosApplication - Starting MsEnviosApplication using Java 25.0.2 with PID 7876 (C:\Users\gubif\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\msEnvios\target\classes started by Gubier in C:\Users\gubif\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\msEnvios)
+2026-05-18 20:56:09 DEBUG [restartedMain] c.s.msEnvios.MsEnviosApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-05-18 20:56:09 INFO  [restartedMain] c.s.msEnvios.MsEnviosApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-18 20:56:09 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-05-18 20:56:09 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-05-18 20:56:10 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-18 20:56:10 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 92 ms. Found 1 JPA repository interface.
+2026-05-18 20:56:10 INFO  [restartedMain] o.s.cloud.context.scope.GenericScope - BeanFactory id=a39957a3-24e9-3d8d-a709-2351ea128707
+2026-05-18 20:56:11 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-05-18 20:56:11 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-05-18 20:56:11 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8083 (http)
+2026-05-18 20:56:11 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-18 20:56:11 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-05-18 20:56:11 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-18 20:56:11 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1786 ms
+2026-05-18 20:56:11 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-18 20:56:11 INFO  [restartedMain] org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-05-18 20:56:11 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-18 20:56:12 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-18 20:56:12 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-18 20:56:12 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1d20b285
+2026-05-18 20:56:12 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-18 20:56:12 WARN  [restartedMain] org.hibernate.dialect.Dialect - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-05-18 20:56:12 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-18 20:56:12 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-18 20:56:12 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18 20:56:13 WARN  [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-18 20:56:13 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoints beneath base path '/actuator'
+2026-05-18 20:56:14 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-05-18 20:56:14 INFO  [restartedMain] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2026-05-18 20:56:14 WARN  [restartedMain] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-05-18 20:56:14 INFO  [restartedMain] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-05-18 20:56:14 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-05-18 20:56:14 INFO  [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 20:56:14 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-05-18 20:56:14 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-05-18 20:56:14 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-05-18 20:56:14 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-05-18 20:56:14 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-05-18 20:56:14 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-05-18 20:56:14 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-05-18 20:56:14 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-05-18 20:56:14 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-05-18 20:56:14 INFO  [restartedMain] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-05-18 20:56:14 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1779152174564 with initial instances count: 0
+2026-05-18 20:56:14 INFO  [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry - Registering application MS-ENVIOS with eureka with status UP
+2026-05-18 20:56:14 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1779152174569, current=UP, previous=STARTING]
+2026-05-18 20:56:14 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-ENVIOS/ms-envios:8083: registering service...
+2026-05-18 20:56:14 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8083 (http) with context path '/'
+2026-05-18 20:56:14 INFO  [restartedMain] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8083
+2026-05-18 20:56:14 INFO  [restartedMain] c.s.msEnvios.MsEnviosApplication - Started MsEnviosApplication in 5.375 seconds (process running for 5.747)
+2026-05-18 20:56:14 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-ENVIOS/ms-envios:8083 - registration status: 204
+2026-05-18 20:56:44 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-05-18 20:56:44 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-05-18 20:56:44 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-05-18 20:56:44 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-05-18 20:56:44 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-05-18 20:56:44 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] c.netflix.discovery.DiscoveryClient - Application version is -1: false
+2026-05-18 20:56:44 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-05-18 20:56:44 INFO  [DiscoveryClient-CacheRefreshExecutor-%d] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-05-18 20:58:22 INFO  [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-18 20:58:22 INFO  [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-18 20:58:22 INFO  [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-05-18 20:58:23 INFO  [http-nio-8083-exec-10] o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 266 ms
+2026-05-18 21:01:14 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 21:06:14 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 21:11:14 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 21:16:14 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 21:21:14 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 21:26:14 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 21:31:14 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 21:36:14 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 21:41:08 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 14 class path changes (0 additions, 14 deletions, 0 modifications)
+2026-05-18 21:41:08 INFO  [Thread-7] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application MS-ENVIOS with eureka with status DOWN
+2026-05-18 21:41:08 INFO  [Thread-7] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1779154868565, current=DOWN, previous=UP]
+2026-05-18 21:41:08 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-ENVIOS/ms-envios:8083: registering service...
+2026-05-18 21:41:08 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-ENVIOS/ms-envios:8083 - registration status: 204
+2026-05-18 21:41:08 INFO  [Thread-7] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18 21:41:08 INFO  [Thread-7] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-18 21:41:08 INFO  [Thread-7] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-05-18 21:41:08 INFO  [Thread-7] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-05-18 21:41:11 INFO  [Thread-7] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-05-18 21:41:11 INFO  [Thread-7] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-ENVIOS/ms-envios:8083 - deregister  status: 200
+2026-05-18 21:41:11 INFO  [Thread-7] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-05-18 21:41:11 INFO  [restartedMain] c.s.msEnvios.MsEnviosApplication - Starting MsEnviosApplication using Java 25.0.2 with PID 7876 (C:\Users\gubif\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\msEnvios\target\classes started by Gubier in C:\Users\gubif\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\msEnvios)
+2026-05-18 21:41:11 DEBUG [restartedMain] c.s.msEnvios.MsEnviosApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-05-18 21:41:11 INFO  [restartedMain] c.s.msEnvios.MsEnviosApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-18 21:41:12 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-18 21:41:12 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 1 JPA repository interface.
+2026-05-18 21:41:13 INFO  [restartedMain] o.s.cloud.context.scope.GenericScope - BeanFactory id=a39957a3-24e9-3d8d-a709-2351ea128707
+2026-05-18 21:41:13 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-05-18 21:41:13 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-05-18 21:41:13 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8083 (http)
+2026-05-18 21:41:13 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-18 21:41:13 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-05-18 21:41:13 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-18 21:41:13 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1524 ms
+2026-05-18 21:41:13 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-18 21:41:13 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-18 21:41:13 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-18 21:41:13 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2026-05-18 21:41:13 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@44a3a287
+2026-05-18 21:41:13 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2026-05-18 21:41:13 WARN  [restartedMain] org.hibernate.dialect.Dialect - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-05-18 21:41:13 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-18 21:41:13 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-18 21:41:13 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18 21:41:14 WARN  [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-18 21:41:14 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoints beneath base path '/actuator'
+2026-05-18 21:41:14 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-05-18 21:41:15 INFO  [restartedMain] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2026-05-18 21:41:15 WARN  [restartedMain] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-05-18 21:41:15 INFO  [restartedMain] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-05-18 21:41:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-05-18 21:41:15 INFO  [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 21:41:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-05-18 21:41:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-05-18 21:41:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-05-18 21:41:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-05-18 21:41:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-05-18 21:41:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-05-18 21:41:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-05-18 21:41:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-05-18 21:41:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-05-18 21:41:15 INFO  [restartedMain] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-05-18 21:41:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1779154875169 with initial instances count: 5
+2026-05-18 21:41:15 INFO  [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry - Registering application MS-ENVIOS with eureka with status UP
+2026-05-18 21:41:15 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1779154875177, current=UP, previous=STARTING]
+2026-05-18 21:41:15 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-ENVIOS/ms-envios:8083: registering service...
+2026-05-18 21:41:15 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8083 (http) with context path '/'
+2026-05-18 21:41:15 INFO  [restartedMain] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8083
+2026-05-18 21:41:15 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-ENVIOS/ms-envios:8083 - registration status: 204
+2026-05-18 21:41:15 INFO  [restartedMain] c.s.msEnvios.MsEnviosApplication - Started MsEnviosApplication in 3.44 seconds (process running for 2706.362)
+2026-05-18 21:41:15 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2026-05-18 21:41:16 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 14 class path changes (14 additions, 0 deletions, 0 modifications)
+2026-05-18 21:41:16 INFO  [Thread-9] o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application MS-ENVIOS with eureka with status DOWN
+2026-05-18 21:41:16 INFO  [Thread-9] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1779154876397, current=DOWN, previous=UP]
+2026-05-18 21:41:16 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-ENVIOS/ms-envios:8083: registering service...
+2026-05-18 21:41:16 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-ENVIOS/ms-envios:8083 - registration status: 204
+2026-05-18 21:41:16 INFO  [Thread-9] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18 21:41:16 INFO  [Thread-9] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2026-05-18 21:41:16 INFO  [Thread-9] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2026-05-18 21:41:16 INFO  [Thread-9] c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-05-18 21:41:19 INFO  [Thread-9] c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-05-18 21:41:19 INFO  [Thread-9] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-ENVIOS/ms-envios:8083 - deregister  status: 200
+2026-05-18 21:41:19 INFO  [Thread-9] c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2026-05-18 21:41:19 INFO  [restartedMain] c.s.msEnvios.MsEnviosApplication - Starting MsEnviosApplication using Java 25.0.2 with PID 7876 (C:\Users\gubif\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\msEnvios\target\classes started by Gubier in C:\Users\gubif\Documents\GitHub\DESARROLLO-FULLSTACK-III-Evaluaci-n-Parcial-N-2\Backend\smartlogix-parent\msEnvios)
+2026-05-18 21:41:19 DEBUG [restartedMain] c.s.msEnvios.MsEnviosApplication - Running with Spring Boot v3.3.5, Spring v6.1.14
+2026-05-18 21:41:19 INFO  [restartedMain] c.s.msEnvios.MsEnviosApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-18 21:41:19 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-18 21:41:19 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13 ms. Found 1 JPA repository interface.
+2026-05-18 21:41:20 INFO  [restartedMain] o.s.cloud.context.scope.GenericScope - BeanFactory id=a39957a3-24e9-3d8d-a709-2351ea128707
+2026-05-18 21:41:20 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-05-18 21:41:20 WARN  [restartedMain] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+2026-05-18 21:41:20 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8083 (http)
+2026-05-18 21:41:20 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-18 21:41:20 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-05-18 21:41:20 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-18 21:41:20 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 676 ms
+2026-05-18 21:41:20 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-18 21:41:20 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-18 21:41:20 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-18 21:41:20 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2026-05-18 21:41:20 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1e356481
+2026-05-18 21:41:20 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2026-05-18 21:41:20 WARN  [restartedMain] org.hibernate.dialect.Dialect - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2026-05-18 21:41:20 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-18 21:41:20 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-18 21:41:20 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18 21:41:20 WARN  [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-18 21:41:20 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver - Exposing 2 endpoints beneath base path '/actuator'
+2026-05-18 21:41:21 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-05-18 21:41:21 INFO  [restartedMain] o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2026-05-18 21:41:21 WARN  [restartedMain] o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-05-18 21:41:21 INFO  [restartedMain] o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2026-05-18 21:41:21 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2026-05-18 21:41:21 INFO  [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 21:41:21 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2026-05-18 21:41:21 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2026-05-18 21:41:21 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2026-05-18 21:41:21 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application is null : false
+2026-05-18 21:41:21 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2026-05-18 21:41:21 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2026-05-18 21:41:21 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2026-05-18 21:41:21 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - The response status is 200
+2026-05-18 21:41:21 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2026-05-18 21:41:21 INFO  [restartedMain] c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-05-18 21:41:21 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1779154881145 with initial instances count: 5
+2026-05-18 21:41:21 INFO  [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry - Registering application MS-ENVIOS with eureka with status UP
+2026-05-18 21:41:21 INFO  [restartedMain] c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1779154881149, current=UP, previous=STARTING]
+2026-05-18 21:41:21 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-ENVIOS/ms-envios:8083: registering service...
+2026-05-18 21:41:21 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8083 (http) with context path '/'
+2026-05-18 21:41:21 INFO  [restartedMain] o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8083
+2026-05-18 21:41:21 INFO  [DiscoveryClient-InstanceInfoReplicator-%d] c.netflix.discovery.DiscoveryClient - DiscoveryClient_MS-ENVIOS/ms-envios:8083 - registration status: 204
+2026-05-18 21:41:21 INFO  [restartedMain] c.s.msEnvios.MsEnviosApplication - Started MsEnviosApplication in 1.648 seconds (process running for 2712.315)
+2026-05-18 21:41:21 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2026-05-18 21:46:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 21:51:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 21:56:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:01:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:06:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:11:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:16:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:16:55 INFO  [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-18 22:16:55 INFO  [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-18 22:16:55 INFO  [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2026-05-18 22:21:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:26:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:31:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:36:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:41:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:46:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:51:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 22:56:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:01:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:06:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:11:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:16:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:21:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:21:25 INFO  [http-nio-8083-exec-4] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:21:26 INFO  [http-nio-8083-exec-5] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:22:07 WARN  [http-nio-8083-exec-6] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.smartlogix.msEnvios.model.Envio> com.smartlogix.msEnvios.controller.EnvioController.crearEnvio(com.smartlogix.msEnvios.dto.EnvioRequest) with 4 errors: [Field error in object 'envioRequest' on field 'usuarioId': rejected value [null]; codes [NotNull.envioRequest.usuarioId,NotNull.usuarioId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [envioRequest.usuarioId,usuarioId]; arguments []; default message [usuarioId]]; default message [El ID del usuario es obligatorio]] [Field error in object 'envioRequest' on field 'ciudadDestino': rejected value [null]; codes [NotBlank.envioRequest.ciudadDestino,NotBlank.ciudadDestino,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [envioRequest.ciudadDestino,ciudadDestino]; arguments []; default message [ciudadDestino]]; default message [La ciudad de destino es obligatoria]] [Field error in object 'envioRequest' on field 'direccionDestino': rejected value [null]; codes [NotBlank.envioRequest.direccionDestino,NotBlank.direccionDestino,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [envioRequest.direccionDestino,direccionDestino]; arguments []; default message [direccionDestino]]; default message [La dirección de destino es obligatoria]] [Field error in object 'envioRequest' on field 'regionDestino': rejected value [null]; codes [NotBlank.envioRequest.regionDestino,NotBlank.regionDestino,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [envioRequest.regionDestino,regionDestino]; arguments []; default message [regionDestino]]; default message [La región de destino es obligatoria]] ]
+2026-05-18 23:22:17 INFO  [http-nio-8083-exec-7] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:22:17 INFO  [http-nio-8083-exec-8] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:23:42 WARN  [http-nio-8083-exec-9] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.smartlogix.msEnvios.model.Envio> com.smartlogix.msEnvios.controller.EnvioController.crearEnvio(com.smartlogix.msEnvios.dto.EnvioRequest) with 4 errors: [Field error in object 'envioRequest' on field 'ciudadDestino': rejected value [null]; codes [NotBlank.envioRequest.ciudadDestino,NotBlank.ciudadDestino,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [envioRequest.ciudadDestino,ciudadDestino]; arguments []; default message [ciudadDestino]]; default message [La ciudad de destino es obligatoria]] [Field error in object 'envioRequest' on field 'regionDestino': rejected value [null]; codes [NotBlank.envioRequest.regionDestino,NotBlank.regionDestino,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [envioRequest.regionDestino,regionDestino]; arguments []; default message [regionDestino]]; default message [La región de destino es obligatoria]] [Field error in object 'envioRequest' on field 'direccionDestino': rejected value [null]; codes [NotBlank.envioRequest.direccionDestino,NotBlank.direccionDestino,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [envioRequest.direccionDestino,direccionDestino]; arguments []; default message [direccionDestino]]; default message [La dirección de destino es obligatoria]] [Field error in object 'envioRequest' on field 'usuarioId': rejected value [null]; codes [NotNull.envioRequest.usuarioId,NotNull.usuarioId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [envioRequest.usuarioId,usuarioId]; arguments []; default message [usuarioId]]; default message [El ID del usuario es obligatorio]] ]
+2026-05-18 23:23:49 INFO  [http-nio-8083-exec-10] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:23:51 INFO  [http-nio-8083-exec-1] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:23:51 INFO  [http-nio-8083-exec-2] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:23:51 INFO  [http-nio-8083-exec-3] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:23:53 WARN  [http-nio-8083-exec-4] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.smartlogix.msEnvios.model.Envio> com.smartlogix.msEnvios.controller.EnvioController.crearEnvio(com.smartlogix.msEnvios.dto.EnvioRequest) with 4 errors: [Field error in object 'envioRequest' on field 'usuarioId': rejected value [null]; codes [NotNull.envioRequest.usuarioId,NotNull.usuarioId,NotNull.java.lang.Long,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [envioRequest.usuarioId,usuarioId]; arguments []; default message [usuarioId]]; default message [El ID del usuario es obligatorio]] [Field error in object 'envioRequest' on field 'ciudadDestino': rejected value [null]; codes [NotBlank.envioRequest.ciudadDestino,NotBlank.ciudadDestino,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [envioRequest.ciudadDestino,ciudadDestino]; arguments []; default message [ciudadDestino]]; default message [La ciudad de destino es obligatoria]] [Field error in object 'envioRequest' on field 'direccionDestino': rejected value [null]; codes [NotBlank.envioRequest.direccionDestino,NotBlank.direccionDestino,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [envioRequest.direccionDestino,direccionDestino]; arguments []; default message [direccionDestino]]; default message [La dirección de destino es obligatoria]] [Field error in object 'envioRequest' on field 'regionDestino': rejected value [null]; codes [NotBlank.envioRequest.regionDestino,NotBlank.regionDestino,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [envioRequest.regionDestino,regionDestino]; arguments []; default message [regionDestino]]; default message [La región de destino es obligatoria]] ]
+2026-05-18 23:26:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-05-18 23:28:29 INFO  [http-nio-8083-exec-5] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:28:44 INFO  [http-nio-8083-exec-6] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:28:45 INFO  [http-nio-8083-exec-7] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:29:03 INFO  [http-nio-8083-exec-8] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:29:03 INFO  [http-nio-8083-exec-9] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:29:18 INFO  [http-nio-8083-exec-10] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:30:58 INFO  [http-nio-8083-exec-1] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:30:58 INFO  [http-nio-8083-exec-2] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:31:00 INFO  [http-nio-8083-exec-3] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:31:01 INFO  [http-nio-8083-exec-4] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:31:01 INFO  [http-nio-8083-exec-5] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:31:01 INFO  [http-nio-8083-exec-6] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:31:02 INFO  [http-nio-8083-exec-7] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:31:02 INFO  [http-nio-8083-exec-8] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:31:03 INFO  [http-nio-8083-exec-9] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:31:07 INFO  [http-nio-8083-exec-10] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:31:07 INFO  [http-nio-8083-exec-1] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:31:11 INFO  [http-nio-8083-exec-2] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:31:11 INFO  [http-nio-8083-exec-3] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:31:20 INFO  [http-nio-8083-exec-4] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:31:20 INFO  [http-nio-8083-exec-5] c.s.msEnvios.service.EnvioService - Listando todos los envíos
+2026-05-18 23:31:21 INFO  [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
