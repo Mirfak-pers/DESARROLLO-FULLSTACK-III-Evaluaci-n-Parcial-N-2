@@ -380,3 +380,16 @@ Responde según permisos
 - **msPedidos** usa `RestTemplate` con un `@Bean` explícito en `AppConfig.java` para llamar a msInventario.
 - Las URLs de Eureka y Keycloak dentro de Docker usan variables de entorno (`${EUREKA_URL}`, `${KEYCLOAK_URL}`) para evitar conflictos con `localhost`.
 - El frontend usa proxy en Vite para desarrollo y Nginx para producción Docker.
+
+$response = Invoke-RestMethod -Method Post `
+  -Uri "http://localhost:8080/realms/smartlogix/protocol/openid-connect/token" `
+  -ContentType "application/x-www-form-urlencoded" `
+  -Body @{
+    grant_type = "password"
+    client_id  = "smartlogix-frontend"
+    username   = "testuser"
+    password   = "Test1234"
+  }
+
+$response.access_token | Set-Clipboard
+Write-Host "Token copiado al portapapeles!"
