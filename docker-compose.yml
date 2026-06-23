@@ -25,12 +25,6 @@ services:
       - "8761:8761"
     networks:
       - smartlogix-net
-    healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8761/actuator/health || exit 1"]
-      interval: 20s
-      timeout: 10s
-      retries: 5
-      start_period: 30s
 
   mysql-inventario:
     image: mysql:8.0
@@ -113,7 +107,7 @@ services:
       mysql-inventario:
         condition: service_healthy
       eureka:
-        condition: service_healthy
+        condition: service_started
       keycloak:
         condition: service_started
     networks:
@@ -137,7 +131,7 @@ services:
       mysql-pedidos:
         condition: service_healthy
       eureka:
-        condition: service_healthy
+        condition: service_started
       ms-inventario:
         condition: service_started
       keycloak:
@@ -162,7 +156,7 @@ services:
       mysql-envios:
         condition: service_healthy
       eureka:
-        condition: service_healthy
+        condition: service_started
       keycloak:
         condition: service_started
     networks:
@@ -185,7 +179,7 @@ services:
       mysql-usuarios:
         condition: service_healthy
       eureka:
-        condition: service_healthy
+        condition: service_started
       keycloak:
         condition: service_started
     networks:
@@ -204,7 +198,7 @@ services:
       - SMARTLOGIX_SERVICES_USUARIOS_URL=http://ms-usuarios:8084/api/usuarios
     depends_on:
       eureka:
-        condition: service_healthy
+        condition: service_started
       ms-inventario:
         condition: service_started
       ms-pedidos:
