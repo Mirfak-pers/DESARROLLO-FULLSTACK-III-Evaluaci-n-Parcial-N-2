@@ -2,10 +2,13 @@ import axios from "axios";
 import keycloak from "../auth/keycloak";
 
 /**
- * Cliente HTTP centralizado para todos los microservicios.
+ * Cliente HTTP centralizado para el BFF.
  *
- * - En desarrollo Vite proxea /api/* a cada microservicio (ver vite.config.js)
- * - En producción Docker, nginx enruta según el path
+ * - En desarrollo Vite proxea /api/bff/* hacia el BFF en http://localhost:8090
+ * - En producción Docker, nginx enruta /api/bff/* hacia el contenedor bff
+ *
+ * Flujo actual:
+ * Frontend -> BFF -> Microservicios
  *
  * Token: se lee directamente del objeto Keycloak (keycloak.token) en lugar de
  * localStorage, ya que Keycloak puede renovar el token internamente sin que
@@ -13,7 +16,7 @@ import keycloak from "../auth/keycloak";
  * Keycloak lo refresca antes de adjuntarlo.
  */
 const apiClient = axios.create({
-  baseURL: "/api",
+  baseURL: "/api/bff",
   headers: {
     "Content-Type": "application/json",
   },
@@ -23,21 +26,32 @@ const apiClient = axios.create({
 apiClient.interceptors.request.use(async (config) => {
   try {
     // Refresca el token si expira en menos de 30 segundos
-    if (keycloak.isTokenExpired(30)) {
+    if (keycloak?.authenticated && keycloak.isTokenExpired(30)) {
       await keycloak.updateToken(30);
     }
-    if (keycloak.token) {
+
+    if (keycloak?.token) {
       config.headers.Authorization = `Bearer ${keycloak.token}`;
+
       // Mantener localStorage sincronizado por compatibilidad
       localStorage.setItem("kc_token", keycloak.token);
+    } else {
+      // Fallback por si existe un token guardado previamente
+      const token = localStorage.getItem("kc_token");
+
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
     }
   } catch {
     // Si no se puede refrescar, intenta con lo que hay en localStorage como fallback
     const token = localStorage.getItem("kc_token");
+
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
   }
+
   return config;
 });
 
@@ -49,8 +63,12 @@ apiClient.interceptors.response.use(
       // Token expirado a pesar del refresh → forzar logout
       console.warn("[apiClient] 401 recibido — sesión expirada, redirigiendo a login...");
       localStorage.removeItem("kc_token");
-      keycloak.logout({ redirectUri: window.location.origin });
+
+      if (keycloak?.authenticated) {
+        keycloak.logout({ redirectUri: window.location.origin });
+      }
     }
+
     return Promise.reject(error);
   }
 );

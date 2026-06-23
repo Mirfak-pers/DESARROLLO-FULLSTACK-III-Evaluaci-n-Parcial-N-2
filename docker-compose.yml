@@ -191,15 +191,38 @@ services:
     networks:
       - smartlogix-net
 
+  bff:
+    build: ./Backend/smartlogix-parent/BFF
+    container_name: smartlogix-bff
+    ports:
+      - "8090:8090"
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka:8761/eureka/
+      - SMARTLOGIX_SERVICES_INVENTARIO_URL=http://ms-inventario:8081/api/inventario/productos
+      - SMARTLOGIX_SERVICES_PEDIDOS_URL=http://ms-pedidos:8082/api/pedidos
+      - SMARTLOGIX_SERVICES_ENVIOS_URL=http://ms-envios:8083/api/envios
+      - SMARTLOGIX_SERVICES_USUARIOS_URL=http://ms-usuarios:8084/api/usuarios
+    depends_on:
+      eureka:
+        condition: service_healthy
+      ms-inventario:
+        condition: service_started
+      ms-pedidos:
+        condition: service_started
+      ms-envios:
+        condition: service_started
+      ms-usuarios:
+        condition: service_started
+    networks:
+      - smartlogix-net
+
   frontend:
     build: ./Frontend/smartlogix-frontend
     container_name: smartlogix-frontend
     ports:
       - "3000:80"
     depends_on:
-      - ms-inventario
-      - ms-pedidos
-      - ms-envios
+      - bff
     networks:
       - smartlogix-net
 
