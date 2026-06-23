@@ -2,13 +2,18 @@ package com.smartlogix.bff.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.util.Map;
 
@@ -226,6 +231,17 @@ public class BffProxyController {
 
     private ResponseEntity<Object> get(String url) {
         try {
+            HttpHeaders headers = construirHeaders();
+
+            if (tieneAuthorization(headers)) {
+                return restTemplate.exchange(
+                        url,
+                        HttpMethod.GET,
+                        new HttpEntity<>(headers),
+                        Object.class
+                );
+            }
+
             return restTemplate.getForEntity(url, Object.class);
         } catch (RestClientResponseException ex) {
             return ResponseEntity
@@ -240,6 +256,17 @@ public class BffProxyController {
 
     private ResponseEntity<Object> post(String url, Object body) {
         try {
+            HttpHeaders headers = construirHeaders();
+
+            if (tieneAuthorization(headers)) {
+                return restTemplate.exchange(
+                        url,
+                        HttpMethod.POST,
+                        new HttpEntity<>(body, headers),
+                        Object.class
+                );
+            }
+
             return restTemplate.postForEntity(url, body, Object.class);
         } catch (RestClientResponseException ex) {
             return ResponseEntity
@@ -254,10 +281,15 @@ public class BffProxyController {
 
     private ResponseEntity<Object> put(String url, Object body) {
         try {
+            HttpHeaders headers = construirHeaders();
+            HttpEntity<Object> entity = tieneAuthorization(headers)
+                    ? new HttpEntity<>(body, headers)
+                    : new HttpEntity<>(body);
+
             return restTemplate.exchange(
                     url,
                     HttpMethod.PUT,
-                    new HttpEntity<>(body),
+                    entity,
                     Object.class
             );
         } catch (RestClientResponseException ex) {
@@ -273,10 +305,15 @@ public class BffProxyController {
 
     private ResponseEntity<Object> patch(String url, Object body) {
         try {
+            HttpHeaders headers = construirHeaders();
+            HttpEntity<Object> entity = tieneAuthorization(headers)
+                    ? new HttpEntity<>(body, headers)
+                    : new HttpEntity<>(body);
+
             return restTemplate.exchange(
                     url,
                     HttpMethod.PATCH,
-                    new HttpEntity<>(body),
+                    entity,
                     Object.class
             );
         } catch (RestClientResponseException ex) {
@@ -292,10 +329,15 @@ public class BffProxyController {
 
     private ResponseEntity<Object> delete(String url) {
         try {
+            HttpHeaders headers = construirHeaders();
+            HttpEntity<?> entity = tieneAuthorization(headers)
+                    ? new HttpEntity<>(headers)
+                    : HttpEntity.EMPTY;
+
             return restTemplate.exchange(
                     url,
                     HttpMethod.DELETE,
-                    HttpEntity.EMPTY,
+                    entity,
                     Object.class
             );
         } catch (RestClientResponseException ex) {
@@ -307,5 +349,30 @@ public class BffProxyController {
                     .internalServerError()
                     .body(Map.of("error", "Error interno del BFF", "detalle", ex.getMessage()));
         }
+    }
+
+    private HttpHeaders construirHeaders() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        ServletRequestAttributes attributes =
+                (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+
+        if (attributes == null) {
+            return headers;
+        }
+
+        HttpServletRequest request = attributes.getRequest();
+        String authorization = request.getHeader(HttpHeaders.AUTHORIZATION);
+
+        if (authorization != null && !authorization.isBlank()) {
+            headers.set(HttpHeaders.AUTHORIZATION, authorization);
+        }
+
+        return headers;
+    }
+
+    private boolean tieneAuthorization(HttpHeaders headers) {
+        return headers.containsKey(HttpHeaders.AUTHORIZATION);
     }
 }
