@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { beforeEach, describe, expect, it, vi } from "vitest"
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const { axiosMock } = vi.hoisted(() => {
   const mock = {
@@ -9,140 +9,142 @@ const { axiosMock } = vi.hoisted(() => {
     put: vi.fn(),
     patch: vi.fn(),
     delete: vi.fn(),
-
     interceptors: {
-      request: {
-        use: vi.fn(),
-      },
-      response: {
-        use: vi.fn(),
-      },
+      request: { use: vi.fn() },
+      response: { use: vi.fn() },
     },
-
     create: vi.fn(),
-  }
+  };
 
-  mock.create.mockReturnValue(mock)
+  mock.create.mockReturnValue(mock);
+  return { axiosMock: mock };
+});
 
-  return {
-    axiosMock: mock,
-  }
-})
+vi.mock("axios", () => ({ default: axiosMock }));
 
-vi.mock("axios", () => ({
-  default: axiosMock,
-}))
+vi.mock("../src/auth/keycloak.js", () => ({
+  default: {
+    token: "token-prueba",
+    isTokenExpired: vi.fn(() => false),
+    updateToken: vi.fn(),
+    logout: vi.fn(),
+  },
+}));
 
-import * as enviosService from "../src/services/enviosService.js"
-
-function obtenerFuncion(servicio, nombres) {
-  const nombreFuncion = nombres.find(
-    (nombre) => typeof servicio[nombre] === "function"
-  )
-
-  if (!nombreFuncion) {
-    throw new Error(
-      `No se encontró ninguna función con estos nombres: ${nombres.join(", ")}`
-    )
-  }
-
-  return servicio[nombreFuncion]
-}
+import {
+  actualizarEstadoEnvio,
+  crearEnvio,
+  eliminarEnvio,
+  obtenerEnvioPorId,
+  obtenerEnvios,
+} from "../src/services/enviosService.js";
 
 describe("enviosService", () => {
   beforeEach(() => {
-    vi.clearAllMocks()
-    localStorage.clear()
-  })
+    vi.clearAllMocks();
+    localStorage.clear();
+  });
 
-  it("lista envíos desde la API", async () => {
+  it("lista envíos desde /envios", async () => {
     const envios = [
       {
         id: 1,
-        pedidoId: 10,
-        estado: "Pendiente",
-        direccion: "Av. Principal 123",
+        pedidoId: 1,
+        usuarioId: 1,
+        direccionDestino: "Av. Siempre Viva 123",
+        ciudadDestino: "Santiago",
+        regionDestino: "Metropolitana",
+        estado: "PENDIENTE",
       },
       {
         id: 2,
-        pedidoId: 11,
-        estado: "En tránsito",
-        direccion: "Calle Norte 456",
+        pedidoId: 2,
+        usuarioId: 2,
+        direccionDestino: "Los Leones 456",
+        ciudadDestino: "Providencia",
+        regionDestino: "Metropolitana",
+        estado: "ENTREGADO",
       },
-    ]
+    ];
 
-    axiosMock.get.mockResolvedValueOnce({ data: envios })
+    axiosMock.get.mockResolvedValueOnce({ data: envios });
 
-    const listarEnvios = obtenerFuncion(enviosService, [
-      "listarEnvios",
-      "obtenerEnvios",
-      "getEnvios",
-    ])
+    const resultado = await obtenerEnvios();
 
-    const resultado = await listarEnvios()
+    expect(axiosMock.get).toHaveBeenCalledWith("/envios");
+    expect(resultado).toEqual(envios);
+  });
 
-    expect(axiosMock.get).toHaveBeenCalled()
-    expect(resultado).toEqual(envios)
-  })
+  it("obtiene un envío por ID desde /envios/{id}", async () => {
+    const envio = {
+      id: 1,
+      pedidoId: 1,
+      usuarioId: 1,
+      direccionDestino: "Av. Siempre Viva 123",
+      ciudadDestino: "Santiago",
+      regionDestino: "Metropolitana",
+      estado: "PENDIENTE",
+    };
 
-  it("crea un envío enviando datos a la API", async () => {
+    axiosMock.get.mockResolvedValueOnce({ data: envio });
+
+    const resultado = await obtenerEnvioPorId(1);
+
+    expect(axiosMock.get).toHaveBeenCalledWith("/envios/1");
+    expect(resultado).toEqual(envio);
+  });
+
+  it("crea un envío en /envios", async () => {
     const nuevoEnvio = {
-      pedidoId: 10,
-      direccion: "Av. Principal 123",
+      pedidoId: 1,
+      usuarioId: 1,
+      direccionDestino: "Av. Siempre Viva 123",
+      ciudadDestino: "Santiago",
+      regionDestino: "Metropolitana",
       transportista: "Chilexpress",
-      fechaEstimada: "2026-05-20",
-    }
+      fechaEntregaEstimada: "2026-06-25T12:00",
+    };
 
     const envioCreado = {
       id: 1,
-      estado: "Pendiente",
+      numeroSeguimiento: "ENV-001",
+      estado: "PENDIENTE",
       ...nuevoEnvio,
-    }
+    };
 
-    axiosMock.post.mockResolvedValueOnce({ data: envioCreado })
+    axiosMock.post.mockResolvedValueOnce({ data: envioCreado });
 
-    const crearEnvio = obtenerFuncion(enviosService, [
-      "crearEnvio",
-      "registrarEnvio",
-      "guardarEnvio",
-      "generarEnvio",
-    ])
+    const resultado = await crearEnvio(nuevoEnvio);
 
-    const resultado = await crearEnvio(nuevoEnvio)
-
-    expect(axiosMock.post).toHaveBeenCalled()
-
-    const datosEnviados = axiosMock.post.mock.calls[0][1]
-
-    expect(datosEnviados).toBeDefined()
-    expect(resultado).toEqual(envioCreado)
-  })
+    expect(axiosMock.post).toHaveBeenCalledWith("/envios", nuevoEnvio);
+    expect(resultado).toEqual(envioCreado);
+  });
 
   it("actualiza el estado de un envío", async () => {
     const envioActualizado = {
       id: 1,
-      pedidoId: 10,
-      estado: "Entregado",
-    }
+      pedidoId: 1,
+      usuarioId: 1,
+      estado: "ENTREGADO",
+    };
 
-    axiosMock.put.mockResolvedValueOnce({ data: envioActualizado })
-    axiosMock.patch.mockResolvedValueOnce({ data: envioActualizado })
-    axiosMock.post.mockResolvedValueOnce({ data: envioActualizado })
+    axiosMock.patch.mockResolvedValueOnce({ data: envioActualizado });
 
-    const actualizarEstado = obtenerFuncion(enviosService, [
-      "actualizarEstadoEnvio",
-      "cambiarEstadoEnvio",
-      "actualizarEnvio",
-    ])
+    const resultado = await actualizarEstadoEnvio(1, "ENTREGADO");
 
-    const resultado = await actualizarEstado(1, "Entregado")
+    expect(axiosMock.patch).toHaveBeenCalledWith("/envios/1/estado", {
+      nuevoEstado: "ENTREGADO",
+    });
 
-    expect(
-      axiosMock.put.mock.calls.length +
-        axiosMock.patch.mock.calls.length +
-        axiosMock.post.mock.calls.length
-    ).toBeGreaterThan(0)
+    expect(resultado).toEqual(envioActualizado);
+  });
 
-    expect(resultado).toEqual(envioActualizado)
-  })
-})
+  it("elimina un envío desde /envios/{id}", async () => {
+    axiosMock.delete.mockResolvedValueOnce({ data: undefined });
+
+    const resultado = await eliminarEnvio(1);
+
+    expect(axiosMock.delete).toHaveBeenCalledWith("/envios/1");
+    expect(resultado).toBeUndefined();
+  });
+});

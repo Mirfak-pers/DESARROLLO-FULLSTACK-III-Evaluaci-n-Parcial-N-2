@@ -28,6 +28,7 @@ function Navbar({ keycloak, authenticated }) {
         <Link to="/inventario">Inventario</Link>
         <Link to="/pedidos">Pedidos</Link>
         <Link to="/envios">Envíos</Link>
+        <Link to="/usuarios">Usuarios</Link>
 
         {!authenticated ? (
           <button className="login-btn" onClick={login}>

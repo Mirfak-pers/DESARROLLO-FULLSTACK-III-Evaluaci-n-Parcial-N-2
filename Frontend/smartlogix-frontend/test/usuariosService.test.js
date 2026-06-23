@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { beforeEach, describe, expect, it, vi } from "vitest"
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const { axiosMock } = vi.hoisted(() => {
   const mock = {
@@ -9,137 +9,164 @@ const { axiosMock } = vi.hoisted(() => {
     put: vi.fn(),
     patch: vi.fn(),
     delete: vi.fn(),
-
     interceptors: {
-      request: {
-        use: vi.fn(),
-      },
-      response: {
-        use: vi.fn(),
-      },
+      request: { use: vi.fn() },
+      response: { use: vi.fn() },
     },
-
     create: vi.fn(),
-  }
+  };
 
-  mock.create.mockReturnValue(mock)
+  mock.create.mockReturnValue(mock);
+  return { axiosMock: mock };
+});
 
-  return {
-    axiosMock: mock,
-  }
-})
+vi.mock("axios", () => ({ default: axiosMock }));
 
-vi.mock("axios", () => ({
-  default: axiosMock,
-}))
+vi.mock("../src/auth/keycloak.js", () => ({
+  default: {
+    token: "token-prueba",
+    isTokenExpired: vi.fn(() => false),
+    updateToken: vi.fn(),
+    logout: vi.fn(),
+  },
+}));
 
-import * as usuariosService from "../src/services/usuariosService.js"
-
-function obtenerFuncion(servicio, nombres) {
-  const nombreFuncion = nombres.find(
-    (nombre) => typeof servicio[nombre] === "function"
-  )
-
-  if (!nombreFuncion) {
-    throw new Error(
-      `No se encontró ninguna función con estos nombres: ${nombres.join(", ")}`
-    )
-  }
-
-  return servicio[nombreFuncion]
-}
+import {
+  actualizarUsuario,
+  crearUsuario,
+  eliminarUsuario,
+  listarUsuarios,
+  loginUsuario,
+  obtenerUsuarioPorId,
+} from "../src/services/usuariosService.js";
 
 describe("usuariosService", () => {
   beforeEach(() => {
-    vi.clearAllMocks()
-    localStorage.clear()
-  })
+    vi.clearAllMocks();
+    localStorage.clear();
+  });
 
-  it("lista usuarios desde la API", async () => {
+  it("lista usuarios desde /usuarios", async () => {
     const usuarios = [
       {
         id: 1,
-        nombre: "Admin",
+        nombre: "Admin SmartLogix",
         email: "admin@smartlogix.cl",
         rol: "ADMIN",
       },
       {
         id: 2,
-        nombre: "Operador",
-        email: "operador@smartlogix.cl",
-        rol: "OPERADOR",
+        nombre: "Cliente Prueba",
+        email: "cliente@smartlogix.cl",
+        rol: "CLIENTE",
       },
-    ]
+    ];
 
-    axiosMock.get.mockResolvedValueOnce({ data: usuarios })
+    axiosMock.get.mockResolvedValueOnce({ data: usuarios });
 
-    const listarUsuarios = obtenerFuncion(usuariosService, [
-      "listarUsuarios",
-      "obtenerUsuarios",
-      "getUsuarios",
-    ])
+    const resultado = await listarUsuarios();
 
-    const resultado = await listarUsuarios()
+    expect(axiosMock.get).toHaveBeenCalledWith("/usuarios");
+    expect(resultado).toEqual(usuarios);
+  });
 
-    expect(axiosMock.get).toHaveBeenCalled()
-    expect(resultado).toEqual(usuarios)
-  })
-
-  it("crea un usuario enviando datos a la API", async () => {
-    const nuevoUsuario = {
-      nombre: "Felipe",
-      email: "felipe@test.cl",
+  it("obtiene un usuario por ID desde /usuarios/{id}", async () => {
+    const usuario = {
+      id: 1,
+      nombre: "Admin SmartLogix",
+      email: "admin@smartlogix.cl",
       rol: "ADMIN",
-    }
+    };
+
+    axiosMock.get.mockResolvedValueOnce({ data: usuario });
+
+    const resultado = await obtenerUsuarioPorId(1);
+
+    expect(axiosMock.get).toHaveBeenCalledWith("/usuarios/1");
+    expect(resultado).toEqual(usuario);
+  });
+
+  it("crea un usuario usando /usuarios/registro", async () => {
+    const nuevoUsuario = {
+      nombre: "Nuevo Usuario",
+      email: "nuevo@smartlogix.cl",
+      password: "123456",
+      rol: "CLIENTE",
+    };
 
     const usuarioCreado = {
-      id: 1,
-      ...nuevoUsuario,
-    }
+      id: 3,
+      nombre: "Nuevo Usuario",
+      email: "nuevo@smartlogix.cl",
+      rol: "CLIENTE",
+    };
 
-    axiosMock.post.mockResolvedValueOnce({ data: usuarioCreado })
+    axiosMock.post.mockResolvedValueOnce({ data: usuarioCreado });
 
-    const crearUsuario = obtenerFuncion(usuariosService, [
-      "crearUsuario",
-      "registrarUsuario",
-      "guardarUsuario",
-      "agregarUsuario",
-    ])
+    const resultado = await crearUsuario(nuevoUsuario);
 
-    const resultado = await crearUsuario(nuevoUsuario)
+    expect(axiosMock.post).toHaveBeenCalledWith(
+      "/usuarios/registro",
+      nuevoUsuario
+    );
+    expect(resultado).toEqual(usuarioCreado);
+  });
 
-    expect(axiosMock.post).toHaveBeenCalled()
+  it("actualiza un usuario usando /usuarios/{id}", async () => {
+    const datosActualizados = {
+      nombre: "Usuario Actualizado",
+      email: "actualizado@smartlogix.cl",
+      rol: "OPERADOR",
+    };
 
-    const datosEnviados = axiosMock.post.mock.calls[0][1]
-
-    expect(datosEnviados).toBeDefined()
-    expect(resultado).toEqual(usuarioCreado)
-  })
-
-  it("actualiza un usuario existente", async () => {
     const usuarioActualizado = {
       id: 1,
-      nombre: "Felipe Actualizado",
-      email: "felipe@test.cl",
-      rol: "ADMIN",
-    }
+      ...datosActualizados,
+    };
 
-    axiosMock.put.mockResolvedValueOnce({ data: usuarioActualizado })
-    axiosMock.patch.mockResolvedValueOnce({ data: usuarioActualizado })
+    axiosMock.put.mockResolvedValueOnce({ data: usuarioActualizado });
 
-    const actualizarUsuario = obtenerFuncion(usuariosService, [
-      "actualizarUsuario",
-      "editarUsuario",
-      "modificarUsuario",
-      "updateUsuario",
-    ])
+    const resultado = await actualizarUsuario(1, datosActualizados);
 
-    const resultado = await actualizarUsuario(1, usuarioActualizado)
+    expect(axiosMock.put).toHaveBeenCalledWith(
+      "/usuarios/1",
+      datosActualizados
+    );
+    expect(resultado).toEqual(usuarioActualizado);
+  });
 
-    expect(
-      axiosMock.put.mock.calls.length + axiosMock.patch.mock.calls.length
-    ).toBeGreaterThan(0)
+  it("elimina un usuario usando /usuarios/{id}", async () => {
+    axiosMock.delete.mockResolvedValueOnce({ data: undefined });
 
-    expect(resultado).toEqual(usuarioActualizado)
-  })
-})
+    const resultado = await eliminarUsuario(1);
+
+    expect(axiosMock.delete).toHaveBeenCalledWith("/usuarios/1");
+    expect(resultado).toBeUndefined();
+  });
+
+  it("realiza login usando /usuarios/login", async () => {
+    const credenciales = {
+      email: "admin@smartlogix.cl",
+      password: "123456",
+    };
+
+    const respuestaLogin = {
+      mensaje: "Login exitoso",
+      usuario: {
+        id: 1,
+        email: "admin@smartlogix.cl",
+        rol: "ADMIN",
+      },
+    };
+
+    axiosMock.post.mockResolvedValueOnce({ data: respuestaLogin });
+
+    const resultado = await loginUsuario(credenciales);
+
+    expect(axiosMock.post).toHaveBeenCalledWith(
+      "/usuarios/login",
+      credenciales
+    );
+    expect(resultado).toEqual(respuestaLogin);
+  });
+});

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Boxes, ClipboardList, Truck, ArrowRight } from "lucide-react";
+import { Boxes, ClipboardList, Truck, ArrowRight, Users } from "lucide-react";
 
 function Dashboard() {
   return (
@@ -9,8 +9,8 @@ function Dashboard() {
           <span className="tag">Sistema logístico eCommerce</span>
           <h1>Panel principal SmartLogix</h1>
           <p>
-            Gestiona inventario, pedidos y envíos desde una plataforma moderna,
-            ordenada y conectada al backend mediante BFF.
+            Gestiona inventario, pedidos, envíos y usuarios desde una plataforma
+            moderna, ordenada y conectada al backend mediante API REST.
           </p>
         </div>
 
@@ -20,16 +20,16 @@ function Dashboard() {
 
           <div className="hero-stats">
             <div>
-              <strong>3</strong>
+              <strong>4</strong>
               <span>Módulos</span>
-            </div>
-            <div>
-              <strong>BFF</strong>
-              <span>Integración</span>
             </div>
             <div>
               <strong>API</strong>
               <span>REST</span>
+            </div>
+            <div>
+              <strong>JPA</strong>
+              <span>Persistencia</span>
             </div>
           </div>
         </div>
@@ -74,6 +74,21 @@ function Dashboard() {
           <div>
             <h3>Envíos</h3>
             <p>Coordina despachos, transportistas y estados de entrega.</p>
+          </div>
+
+          <div className="module-action">
+            Entrar <ArrowRight size={18} />
+          </div>
+        </Link>
+
+        <Link to="/usuarios" className="module-card">
+          <div className="module-icon usuarios-icon">
+            <Users size={34} />
+          </div>
+
+          <div>
+            <h3>Usuarios</h3>
+            <p>Administra usuarios, roles y registros asociados al sistema.</p>
           </div>
 
           <div className="module-action">
