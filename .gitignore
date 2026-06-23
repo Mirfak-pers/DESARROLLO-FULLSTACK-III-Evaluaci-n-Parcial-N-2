@@ -1,2 +1,69 @@
-/Backend/smartlogix-parent/msEnvios/target/
-node_modules
+# =========================
+# Sistema operativo
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Variables de entorno / secretos
+# =========================
+.env
+.env.*
+secret.env
+*.env
+!.env.example
+
+# =========================
+# Java / Maven / Spring Boot
+# =========================
+target/
+**/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# =========================
+# Logs
+# =========================
+logs/
+**/logs/
+*.log
+
+# =========================
+# Node / React / Vite
+# =========================
+node_modules/
+**/node_modules/
+dist/
+build/
+coverage/
+.vite/
+
+# =========================
+# Testing / coverage
+# =========================
+.nyc_output/
+coverage/
+**/coverage/
+
+# =========================
+# IDEs
+# =========================
+.idea/
+.vscode/
+*.iml
+
+# =========================
+# NetBeans
+# =========================
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# =========================
+# Docker
+# =========================
+*.pid
