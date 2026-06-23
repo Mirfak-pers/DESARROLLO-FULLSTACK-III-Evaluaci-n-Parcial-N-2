@@ -8,7 +8,7 @@ function Usuarios() {
   const [cargando, setCargando] = useState(false);
 
   const [form, setForm] = useState({
-    nombre: "",
+    username: "",
     email: "",
     password: "",
     rol: "CLIENTE",
@@ -39,7 +39,7 @@ function Usuarios() {
 
   const limpiarFormulario = () => {
     setForm({
-      nombre: "",
+      username: "",
       email: "",
       password: "",
       rol: "CLIENTE",
@@ -53,8 +53,8 @@ function Usuarios() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!form.nombre.trim() || !form.email.trim() || !form.password.trim()) {
-      alert("Completa los campos obligatorios: nombre, correo y contraseña.");
+    if (!form.username.trim() || !form.email.trim() || !form.password.trim()) {
+      alert("Completa los campos obligatorios: usuario, correo y contraseña.");
       return;
     }
 
@@ -69,7 +69,7 @@ function Usuarios() {
     }
 
     const nuevoUsuario = {
-      nombre: form.nombre.trim(),
+      username: form.username.trim(),
       email: form.email.trim(),
       password: form.password,
       rol: form.rol,
@@ -92,7 +92,7 @@ function Usuarios() {
   const usuariosFiltrados = usuarios.filter((usuario) => {
     const texto = `
       ${usuario.id || ""}
-      ${usuario.nombre || ""}
+      ${usuario.username || ""}
       ${usuario.email || ""}
       ${usuario.rol || ""}
     `.toLowerCase();
@@ -158,7 +158,7 @@ function Usuarios() {
           <Search size={18} />
 
           <input
-            placeholder="Buscar por ID, nombre, correo o rol"
+            placeholder="Buscar por ID, usuario, correo o rol"
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
           />
@@ -179,9 +179,9 @@ function Usuarios() {
           onSubmit={handleSubmit}
         >
           <input
-            name="nombre"
-            placeholder="Nombre completo *"
-            value={form.nombre}
+            name="username"
+            placeholder="Nombre de usuario *"
+            value={form.username}
             onChange={handleChange}
             disabled={cargando}
           />
@@ -227,7 +227,7 @@ function Usuarios() {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Nombre</th>
+              <th>Usuario</th>
               <th>Correo</th>
               <th>Rol</th>
             </tr>
@@ -247,7 +247,7 @@ function Usuarios() {
                     <strong>#{usuario.id}</strong>
                   </td>
 
-                  <td>{usuario.nombre}</td>
+                  <td>{usuario.username}</td>
 
                   <td>{usuario.email}</td>
 

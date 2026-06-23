@@ -23,13 +23,13 @@ describe("Usuarios page", () => {
     listarUsuariosMock.mockResolvedValue([
       {
         id: 1,
-        nombre: "Admin SmartLogix",
+        username: "admin",
         email: "admin@smartlogix.cl",
         rol: "ADMIN",
       },
       {
         id: 2,
-        nombre: "Cliente Prueba",
+        username: "cliente",
         email: "cliente@smartlogix.cl",
         rol: "CLIENTE",
       },
@@ -47,7 +47,7 @@ describe("Usuarios page", () => {
     expect(screen.getByText("Usuarios")).toBeInTheDocument();
     expect(screen.getByText(/gestión de usuarios/i)).toBeInTheDocument();
 
-    expect(await screen.findByText("Admin SmartLogix")).toBeInTheDocument();
+    expect(await screen.findByText("admin")).toBeInTheDocument();
     expect(screen.getByText("cliente@smartlogix.cl")).toBeInTheDocument();
 
     expect(listarUsuariosMock).toHaveBeenCalledTimes(1);
@@ -56,30 +56,30 @@ describe("Usuarios page", () => {
   it("permite buscar usuarios por texto", async () => {
     render(<Usuarios />);
 
-    expect(await screen.findByText("Admin SmartLogix")).toBeInTheDocument();
+    expect(await screen.findByText("admin")).toBeInTheDocument();
 
     fireEvent.change(screen.getByPlaceholderText(/buscar por id/i), {
       target: { value: "cliente" },
     });
 
-    expect(screen.getByText("Cliente Prueba")).toBeInTheDocument();
-    expect(screen.queryByText("Admin SmartLogix")).not.toBeInTheDocument();
+    expect(screen.getByText("cliente")).toBeInTheDocument();
+    expect(screen.queryByText("admin")).not.toBeInTheDocument();
   });
 
   it("crea un usuario con datos válidos", async () => {
     crearUsuarioMock.mockResolvedValue({
       id: 3,
-      nombre: "Operador Nuevo",
+      username: "operador",
       email: "operador@smartlogix.cl",
       rol: "OPERADOR",
     });
 
     render(<Usuarios />);
 
-    await screen.findByText("Admin SmartLogix");
+    await screen.findByText("admin");
 
-    fireEvent.change(screen.getByPlaceholderText(/nombre completo/i), {
-      target: { value: "Operador Nuevo" },
+    fireEvent.change(screen.getByPlaceholderText(/nombre de usuario/i), {
+      target: { value: "operador" },
     });
 
     fireEvent.change(screen.getByPlaceholderText(/correo electrónico/i), {
@@ -98,7 +98,7 @@ describe("Usuarios page", () => {
 
     await waitFor(() => {
       expect(crearUsuarioMock).toHaveBeenCalledWith({
-        nombre: "Operador Nuevo",
+        username: "operador",
         email: "operador@smartlogix.cl",
         password: "123456",
         rol: "OPERADOR",
@@ -109,7 +109,7 @@ describe("Usuarios page", () => {
   it("no crea usuario si faltan campos obligatorios", async () => {
     render(<Usuarios />);
 
-    await screen.findByText("Admin SmartLogix");
+    await screen.findByText("admin");
 
     fireEvent.click(screen.getByRole("button", { name: /nuevo usuario/i }));
 
